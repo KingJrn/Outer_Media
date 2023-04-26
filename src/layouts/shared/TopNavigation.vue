@@ -36,7 +36,7 @@ nav {
 }
 
 .page-title {
-    @include textStyles('Poppins', 600, 16px, 20px);
+    @include textStyles('Poppins', 600, 20px, 30px);
     color: $nav-text-primary-bold;
     letter-spacing: $default-letter-sapcing;
 
