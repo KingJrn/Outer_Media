@@ -1,7 +1,7 @@
 <template>
   <Navigation>
     <div id="content">
-      kkkk
+  
     </div>
   </Navigation>
 </template>
@@ -17,5 +17,7 @@ export default {
 </script>
 
 <style>
-
+  #content{
+    height: 100%;
+  }
 </style>
