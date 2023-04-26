@@ -1,3 +1,14 @@
+// CUSTOM FONTS
+
+@font-face {
+    font-family: 'Poppins';
+    src: url("@/assets/fonts/Poppins-Font-2/Poppins-Regular.ttf");
+}
+@font-face {
+    font-family: 'Inter';
+    src: url("@/assets/fonts/Inter/Inter-Regular.woff");
+}
+
 // VARIABLES
 
 // General Background colors palatte
@@ -11,7 +22,7 @@ $color-brand-sceondary-danger: #FF0000;
 // Navigation Text
 $nav-text-primary-bold: rgba(0, 0, 0, 0.71);
 $nav-text-primary-dark: #282828;
-$nav-text-primary-info: #0AAA06;
+$nav-text-primary-success: #0AAA06;
 
 
 
@@ -34,5 +45,49 @@ $body-text-blue: #191E9E;
 $body-background-btn: #4C34C2;
 $body-small-text:#7E7E7E;
 
+// box-shadow-color
+$nav-box-shadow-color:  rgba(0, 0, 0, 0.13);
+
+
+// Border Colors
+$nav-border-color: #E7E7E7;
+
+
+// Border Measurement
+$default-border-radius: 4px;
+$default-border: 1px solid;
+
+
+// margin and padding spacing Measurement
+$default-spacing: 5px;
+
+// standard Measurement
+$standard-padding: 44px;
+
+
+// letter-spacing
+$default-letter-sapcing: -0.01em;
+
+// FLEX BOX
+$default-gap: 1;
 
 // General Styles
+// select,
+// textarea,
+// input {
+//     color: #000000;
+//     font-size: 14px;
+
+//     &:hover,
+//     &:active,
+//     &:focus,
+//     &:focus-visible {
+//         border-color: $zowasel-green !important;
+//         box-shadow: none !important;
+//     }
+// }
+// label {
+//     color: rgba(45, 55, 72, 0.8);
+//     font-size: 14px;
+//     font-weight: 900;
+// }
