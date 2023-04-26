@@ -1,19 +1,21 @@
 <template>
-  <TopNavigation>
-
-  </TopNavigation>
-  <SideBar></SideBar>
+  <Navigation>
+    <div id="content">
+      kkkk
+    </div>
+  </Navigation>
 </template>
 
 <script>
-import TopNavigation from '@/layouts/shared/TopNavigation.vue';
-import SideBar from '@/layouts/shared/SideBar.vue';
-
+import Navigation from '@/layouts/Navigation.vue';
 export default {
   name: 'Home',
   components: {
-    TopNavigation,
-    SideBar
+    Navigation
   }
 }
 </script>
+
+<style>
+
+</style>

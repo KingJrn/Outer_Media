@@ -121,8 +121,11 @@ export default {
 @import '@/assets/scss/main.scss';
 
 nav {
-    width: 200px;
-    height: 100vh;
+    width: $nav-width;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     background: $color-brand-primary-blue;
 
 }
@@ -161,7 +164,6 @@ nav {
             @include textStyles('Poppins', 500, 12px, 20px);
             color: $sidebar-text-primary;
             padding-block: 13px;
-            // width: 169px;
             height: 46px;
             @extend %sidebar-padding-inline;
 

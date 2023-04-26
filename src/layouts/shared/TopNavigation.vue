@@ -1,5 +1,5 @@
 <template>
-    <nav class="w-100">
+    <nav>
         <div class="page-title">Dashboard</div>
         <div class="live-section">
             <!-- live section -->
@@ -31,8 +31,13 @@ nav {
     border: $default-border $nav-border-color;
     border-radius: $default-border-radius;
     @include flexed-Container(row, space-between);
-    height: 54px;
+    height: $nav-height;
     padding-inline: $standard-padding;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - $nav-width);
+    z-index: 10000;
 }
 
 .page-title {
