@@ -1,32 +1,41 @@
 <template>
     <mainView>
         <div class="main-container">
-            <div class="help">
-                <span>Help</span>
-                <img class="table-icon" src="@/assets/images/vectors/questionMark.svg" alt="trash" />
-
-            </div>
             <div class="image-header top">
-                <!-- select user components  -->
-                <selectUsers />
-                <div class="add-user">Add New Crawler</div>
-            </div>
+                <div class="sort-container">
+                    <form action="select-form">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected><span>Library Folder : ALL</span></option>
+                            <option value="1">Library Folder : 0</option>
 
+                        </select>
+                    </form>
+                    <!-- select user components  -->
+
+                    <selectUsers />
+                </div>
+                <div class="add-user">Add New Image</div>
+            </div>
 
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Last Modified</th>
+                        <th scope="col">Images</th>
+                        <th scope="col">Library Folder</th>
+                        <th scope="col">File Name</th>
                         <th scope="col" class="action-header">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td scope="row">16</td>
-                        <td>Sanple Crawler</td>
-                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/outertix.svg" alt="Images" />
+
+                        </td>
+                        <td>Images</td>
+                        <td>New Outertix Logo for TV.png</td>
                         <td colspan="2" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                             <span class="edit">Edit</span>
@@ -35,8 +44,12 @@
 
                     <tr>
                         <td scope="row">16</td>
-                        <td>Sanple Crawler</td>
-                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/outertix.svg" alt="Images" />
+
+                        </td>
+                        <td>Images</td>
+                        <td>New Outertix Logo for TV.png</td>
                         <td colspan="2" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                             <span class="edit">Edit</span>
@@ -45,8 +58,12 @@
 
                     <tr>
                         <td scope="row">16</td>
-                        <td>Sanple Crawler</td>
-                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/outertix.svg" alt="Images" />
+
+                        </td>
+                        <td>Images</td>
+                        <td>New Outertix Logo for TV.png</td>
                         <td colspan="2" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                             <span class="edit">Edit</span>
@@ -55,8 +72,12 @@
 
                     <tr>
                         <td scope="row">16</td>
-                        <td>Sanple Crawler</td>
-                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/outertix.svg" alt="Images" />
+
+                        </td>
+                        <td>Images</td>
+                        <td>New Outertix Logo for TV.png</td>
                         <td colspan="2" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                             <span class="edit">Edit</span>
@@ -65,8 +86,12 @@
 
                     <tr>
                         <td scope="row">16</td>
-                        <td>Sanple Crawler</td>
-                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/outertix.svg" alt="Images" />
+
+                        </td>
+                        <td>Images</td>
+                        <td>New Outertix Logo for TV.png</td>
                         <td colspan="2" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                             <span class="edit">Edit</span>
@@ -75,25 +100,17 @@
 
                     <tr>
                         <td scope="row">16</td>
-                        <td>Sanple Crawler</td>
-                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/outertix.svg" alt="Images" />
+
+                        </td>
+                        <td>Images</td>
+                        <td>New Outertix Logo for TV.png</td>
                         <td colspan="2" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                             <span class="edit">Edit</span>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td scope="row">16</td>
-                        <td>Sanple Crawler</td>
-                        <td>Dec 22, 2021 04:12 pm EST</td>
-                        <td colspan="2" class="actions">
-                            <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
-                            <span class="edit">Edit</span>
-                        </td>
-                    </tr>
-
-
                 </tbody>
             </table>
             <!-- pagination -->
@@ -107,7 +124,7 @@ import mainView from '@/layouts/partials/mainView.vue'
 import selectUsers from '@/layouts/partials/selectUsers.vue'
 import pagination from '@/layouts/partials/pagination.vue'
 export default {
-    name: 'Crawlers',
+    name: 'Images',
     components: {
         mainView,
         selectUsers,
@@ -123,19 +140,22 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/main.scss';
 @import '@/assets/scss/shared/table.scss';
+.sort-container {
+    @extend .image-header;
+    gap: ($standard * 18px);
 
-.help {
-    @include flexed-Container(row, flex-start);
-    gap: ($standard * 11px);
-    transform: translateY(27px);
+}
 
-    span {
-        color: $nav-text-primary-bold;
-        @include textStyles('Poppins', 700, 16px, 24px);
-        letter-spacing: $default-letter-sapcing;
-    }
+
+select {
+
+    width: ($standard * 171.5px);
+    padding-left: ($standard * 17.5px);
+    background: $body-input;
+    @include textStyles('Poppins', 400, 12px, 18px);
+    letter-spacing: $default-letter-sapcing;
+    color: $body-small-text;
+    border-radius: $default-spacing * 2;
 }
-.image-header {
-    @include flexed-Container(row, space-between);
-}
+
 </style>

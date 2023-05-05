@@ -13,8 +13,6 @@
                 </select>
             </form>
         </div>
-        <div class="add-user">Add New User</div>
-
     </div>
 </template>
 
@@ -28,8 +26,6 @@ export default {
 
 .select-users {
     @include flexed-Container(row, space-between);
-    margin-top: ($standard * 39px);
-
 }
 
 .select {
@@ -40,7 +36,6 @@ export default {
         position: relative;
 
         input {
-            background: #F9FBFF;
             border: $default-border-1 $body-border-color-3;
             border-radius: $default-spacing * 2;
             width: ($standard * 240.55px);
@@ -72,14 +67,5 @@ export default {
         color: $body-small-text;
         border-radius: $default-spacing * 2;
     }
-}
-
-.add-user {
-    padding: ($standard * 8px) ($standard * 10px);
-    background: #111C39;
-    border: $default-border-3 $body-border-color-4;
-    border-radius: 6px;
-    color: $color-brand-primary;
-    width: ($standard * 112px);
 }
 </style>

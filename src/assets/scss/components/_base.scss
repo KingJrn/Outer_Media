@@ -101,22 +101,14 @@ $nav-width: 230px;
 $nav-height: 57px;
 
 // General Styles
-// select,
-// textarea,
-// input {
-//     color: #000000;
-//     font-size: 14px;
-
-//     &:hover,
-//     &:active,
-//     &:focus,
-//     &:focus-visible {
-//         border-color: $zowasel-green !important;
-//         box-shadow: none !important;
-//     }
-// }
-// label {
-//     color: rgba(45, 55, 72, 0.8);
-//     font-size: 14px;
-//     font-weight: 900;
-// }
+select,
+textarea,
+input {
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-visible {
+        border-color: $body-background-btn !important;
+        box-shadow: none !important;
+    }
+}
