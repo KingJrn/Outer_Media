@@ -9,7 +9,7 @@
 <script>
 import Navigation from '@/layouts/Navigation.vue';
 export default {
-  name: 'Home',
+  name: 'HomeView',
   components: {
     Navigation
   }
