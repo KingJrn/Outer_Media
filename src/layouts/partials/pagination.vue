@@ -28,20 +28,19 @@ export default {
 
 .paginated {
     float: right;
-    margin-top:($standard * 34px);
-
+    margin-top: calculate-value(34px);
     ul {
-        column-gap: ($standard * 21px);
+        column-gap: calculate-value(21px);
     }
 
     a {
         background: $color-brand-secondary-lighter;
         border: $default-border-1 $body-border-color-5;
         border-radius: $default-border-radius;
-        padding: ($standard * 6px) ($standard * 9px);
+        padding: calculate-value(6px)  calculate-value(9px);
         gap: $default-spacing * 2;
-        width: ($standard * 26px);
-        height: ($standard * 24px);
+        width: calculate-value(26px);
+        height: calculate-value(24px);
         @include textStyles('Poppins', 500, 12px, 12px);
         letter-spacing: $default-letter-sapcing;
         color: $body-color-primary-light-2;

@@ -1,3 +1,4 @@
+
 // MIXINS
 
 @mixin flexed-Container($direction: row, $justify-content: center, $align-items: center) {
@@ -30,10 +31,10 @@ $prefixes: (
 
 @mixin textStyles($font-family, $font-weight, $font-size, $line-height) {
     font-family: $font-family;
-    font-size: $font-size * $standard;
+    font-size: calculate-value($font-size);
     font-style: normal;
     font-weight: $font-weight;
-    line-height: $line-height * $standard;
+    line-height: calculate-value($line-height);
 }
 
 // UTILITIES
@@ -43,7 +44,7 @@ $prefixes: (
 }
 
 .add-user {
-    padding: ($standard * 8px) ($standard * 10px);
+    padding: calculate-value(8px) calculate-value(10px);
     background: #111C39;
     border: $default-border-3 $body-border-color-4;
     border-radius: 6px;
@@ -56,7 +57,7 @@ $prefixes: (
     @include flexed-Container(row, space-between);
 }
 .top{
-    margin-top: ($standard * 39px);
+    margin-top: calculate-value(39px);
 }
 
 // Placeholders

@@ -126,7 +126,7 @@ export default {
 
 .help {
     @include flexed-Container(row, flex-start);
-    gap: ($standard * 11px);
+    gap: calculate-value(11px);
     transform: translateY(27px);
 
     span {

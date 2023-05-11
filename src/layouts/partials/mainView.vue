@@ -22,8 +22,8 @@ export default {
 @import '@/assets/scss/main.scss';
 
 main {
-    padding-inline: ($standard * 36px) ($standard * 37px);
-    padding-block: ($standard * 35px) ($standard * 67px);
+    padding-inline: calculate-value(36px) calculate-value(37px);
+    padding-block: calculate-value(35px) calculate-value(67px);
     background: $color-brand-primary;
 }
 
@@ -33,6 +33,6 @@ main {
     box-shadow: 2px 4px 24px 1px $body-box-shadow;
     border: $default-border-2 $body-border-color;
     border-radius: ($default-border-radius * 3) - 1;
-    padding-inline: ($standard * 62px);
+    padding-inline: calculate-value(62px);
 }
 </style>

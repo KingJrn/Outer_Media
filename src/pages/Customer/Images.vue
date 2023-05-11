@@ -142,15 +142,15 @@ export default {
 @import '@/assets/scss/shared/table.scss';
 .sort-container {
     @extend .image-header;
-    gap: ($standard * 18px);
+    gap: calculate-value(18px);
 
 }
 
 
 select {
 
-    width: ($standard * 171.5px);
-    padding-left: ($standard * 17.5px);
+    width: calculate-value(171.5px);
+    padding-left: calculate-value(17.5px);
     background: $body-input;
     @include textStyles('Poppins', 400, 12px, 18px);
     letter-spacing: $default-letter-sapcing;

@@ -168,7 +168,7 @@ export default {
 @import '@/assets/scss/shared/table.scss';
 
 .login-status {
-  margin-block: ($standard * 76px) ($standard * 26px);
+  margin-block: calculate-value(76px)  calculate-value(26px);
   @include textStyles('Poppins', 500, 24px, 36px);
   color: $nav-text-primary-dark;
 
@@ -182,6 +182,6 @@ export default {
   color: $body-color-primary-light;
   border-bottom: $default-border-2 $body-border-color-2;
   width: fit-content;
-  padding-bottom: ($standard * 11px);
+  padding-bottom: calculate-value(11px);
 }
 </style>

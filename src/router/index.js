@@ -47,6 +47,16 @@ const router = createRouter({
       name: 'Images',
       component: () => import('../pages/Customer/Images.vue')
     },
+    {
+      path: '/schedule',
+      name: 'Schedule',
+      component: () => import('../pages/Customer/Schedule.vue')
+    },
+    {
+      path: '/tempschedule',
+      name: 'TemporarySchedule',
+      component: () => import('../pages/Customer/TemporarySchedule.vue')
+    },
   ]
 })
 

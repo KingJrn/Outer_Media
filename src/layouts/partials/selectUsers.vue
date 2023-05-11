@@ -30,7 +30,7 @@ export default {
 
 .select {
     @include flexed-Container(row, space-between);
-    gap: ($standard * 18px);
+    gap: calculate-value(18px);
 
     .search {
         position: relative;
@@ -38,8 +38,8 @@ export default {
         input {
             border: $default-border-1 $body-border-color-3;
             border-radius: $default-spacing * 2;
-            width: ($standard * 240.55px);
-            padding-left: ($standard * 44.4px);
+            width: calculate-value(240.55px);
+            padding-left:  calculate-value(44.4px);
             background: $body-input;
 
             &::placeholder {
@@ -59,8 +59,8 @@ export default {
 
     select {
 
-        width: ($standard * 118px);
-        padding-left: ($standard * 17.5px);
+        width: calculate-value(118px);
+        padding-left: calculate-value(17.5px);
         background: $body-input;
         @include textStyles('Poppins', 400, 12px, 18px);
         letter-spacing: $default-letter-sapcing;

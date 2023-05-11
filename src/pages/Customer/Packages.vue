@@ -243,7 +243,7 @@ export default {
 @import '@/assets/scss/shared/table.scss';
 
 .decision {
-    margin-right: ($standard * 12px);
+    margin-right: calculate-value(12px);
 }
 .vertical-line {
 

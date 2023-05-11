@@ -65,7 +65,7 @@
             </li>
             <li class="nav-item">
 
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/schedule">
                     <img class="dark" src="@/assets/images/vectors/darkSchedule.svg" alt="schedule">
                     <img class="light" src="@/assets/images/vectors/file.svg" alt="schedule">
                     <span>Schedule</span>
@@ -73,7 +73,7 @@
             </li>
             <li class="nav-item">
 
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/tempschedule">
                     <img class="dark" src="@/assets/images/vectors/darkPriorityschedule.svg" alt="piorityschdeule">
                     <img class="light" src="@/assets/images/vectors/Priorityschedule.svg" alt="piorityschdeule">
                     <span>Temporary Schedule</span>
