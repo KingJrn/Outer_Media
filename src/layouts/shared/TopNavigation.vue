@@ -28,11 +28,11 @@ export default {
 nav {
     background: $color-brand-primary;
     box-shadow: 0px 4px 15px $nav-box-shadow-color;
-    border: $default-border $nav-border-color;
+    border: $default-border-1 $nav-border-color;
     border-radius: $default-border-radius;
     @include flexed-Container(row, space-between);
     height: $nav-height;
-    padding-inline: $standard-padding;
+    padding-inline: $standard * 44px;
     position: fixed;
     top: 0;
     right: 0;

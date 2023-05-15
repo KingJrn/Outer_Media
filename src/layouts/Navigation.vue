@@ -36,4 +36,5 @@ export default {
     transform: translateY($nav-height);
     width: calc(100% - $nav-width);
     margin-left: $nav-width;
-}</style>
+}
+</style>

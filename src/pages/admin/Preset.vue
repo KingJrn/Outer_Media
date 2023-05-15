@@ -2,20 +2,19 @@
   <Navigation>
     <div id="content">
         <div class="main-container">
-            <h3>You are logged in as a <span>Super Admin</span></h3>
             <div class="top-items">
                 <div class="left-side">
                     <input type="text" placeholder="search">
                     <select name="" id="">
                         <option value="8">display : 8</option>
                     </select>
-                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="help">
+                    <div class="help">
                         <p>Help</p>
                         <img src="@/assets/images/vectors/question.svg" alt="">
-                    </a>
+                    </div>
                 </div>
                 <div class="right-side">
-                    <a class="organize-btn" href="/addorganization">Add New Organization</a>
+                    <a href="/addlibrary">Add New Library</a>
                 </div>
             </div>
             <table class="table">
@@ -23,120 +22,96 @@
                     <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Added</th>
-                    <th scope="col">Last Login</th>
+                    <th scope="col">Published</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
+                        <td >Sample - Center Fade/Zoom In/Out</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
+                            
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
+                        <td>Sample - Center Fade/Zoom In/Out</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
+                            
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
+                        <td>Sample - Center Fade/Zoom In/Out</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
+                            
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
+                        <td>Sample - Center Fade/Zoom In/Out</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
+                            
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
+                        <td>Sample - Center Fade/Zoom In/Out</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
+                            
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
+                        <td>Sample - Center Fade/Zoom In/Out</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Sample - Center Fade/Zoom In/Out</td>
+                        <td>Yes <Switch/></td>
+                        <td class="action">
+                            <a href="">Edit</a>
+                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
+                            
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-
-
-<div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">About Libraries</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>This Page Contains a List of Organizations on the platform,</p>
-
-        <p>Click on the “Login” button on any organization to Login as 
-            that organization and manage the account
-        </p>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-
   </Navigation>
 </template>
 
 <script>
+import Switch from '@/layouts/partials/Switch.vue';
 import Navigation from '@/layouts/Navigation.vue';
 export default {
-  name: 'OrganizationsView',
+  name: 'PresetView',
   components: {
-    Navigation
+    Navigation,
+    Switch,
   }
 }
 </script>
@@ -154,14 +129,14 @@ export default {
         border: 2px solid rgba(0, 0, 0, 0.07);
         box-shadow: 2px 4px 24px 1px rgba(0, 0, 0, 0.1);
         border-radius: 11px;
-        padding: 20px 60px 20px 60px;
+        padding: 50px 60px 20px 60px;
 
 
         .top-items{
             display: flex;
             justify-content: space-between;
 
-            .organize-btn{
+            a{
                 background: #111C39;
                 border: 3px solid rgba(27, 17, 55, 0.22);
                 border-radius: 6px;
@@ -190,7 +165,6 @@ export default {
                     display: flex;
                     gap: 10px;
                     align-items: center;
-                    color: white;
 
                     p{
                         margin: 0px;
@@ -211,7 +185,7 @@ export default {
             width: 100%;
 
             td{
-                padding: 15px;
+                padding: 20px;
             }
             th{
                 font-family: 'Poppins';
@@ -225,8 +199,7 @@ export default {
 
             .action{
                 display: flex;
-                gap: 20px;
-                justify-content: space-between;
+                gap: 50px;
                 align-items: center;
 
                 a{

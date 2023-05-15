@@ -1,0 +1,63 @@
+// Table
+table {
+    margin-top: $standard * 54px;
+}
+
+thead tr th {
+    @include textStyles('Poppins', 500, 14px, 21px);
+    letter-spacing: $default-letter-sapcing;
+    color: $body-text-primary-lighter;
+}
+
+tbody tr td {
+    @include textStyles('Poppins', 500, 14px, 21px);
+    letter-spacing: $default-letter-sapcing;
+    color: $body-color-primay-dim;
+}
+
+tbody tr {
+    height: 74px;
+    vertical-align: middle;
+}
+
+tr:last-child {
+    border-bottom-style: hidden;
+}
+
+.actions {
+
+    >img,
+    >span {
+        margin-right: ($standard * 21px);
+        vertical-align: middle;
+    }
+
+    .edit {
+        @include textStyles('Inter', 700, 14px, 30px);
+        @extend %table-padding;
+        color: $body-text-blue;
+    }
+
+    .packages {
+        @extend .edit;
+        @extend %table-padding;
+        background: $color-brand-primary;
+        border: $default-border-2 $table-border-color;
+    }
+
+    .play-view {
+        @extend %table-padding;
+        background: $body-color-seconday-dim;
+
+        .view {
+            @extend .edit;
+            color: $color-brand-primary;
+        }
+
+        .play {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+    }
+}

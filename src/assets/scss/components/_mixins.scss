@@ -25,16 +25,17 @@ $prefixes: ("webkit", "moz", "o", "ms");
 
 @mixin textStyles($font-family, $font-weight, $font-size, $line-height) {
     font-family: $font-family;
-    font-size: $font-size;
+    font-size: $font-size * $standard;
     font-style: normal;
     font-weight: $font-weight;
-    line-height: $line-height;
+    line-height: $line-height * $standard;
 }
 
-
 // UTILITIES
-
-
+.hover:hover{
+    background-color: darken(white, 10% );
+}
+// Placeholders
 %background {
     background-position: center;
     background-repeat: no-repeat;
@@ -42,4 +43,9 @@ $prefixes: ("webkit", "moz", "o", "ms");
 }
 %sidebar-padding-inline{
     padding-inline: 27px 6px;
+}
+%table-padding{
+    padding: 7px 8px;
+    border-radius: 7px;
+
 }

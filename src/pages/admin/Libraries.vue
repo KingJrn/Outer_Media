@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="right-side">
-                    <a href="/addorganization">Add New Library</a>
+                    <a href="/addlibrary">Add New Library</a>
                 </div>
             </div>
             <table class="table">
@@ -33,7 +33,7 @@
                         <th scope="row">1</th>
                         <td>Misc Image</td>
                         <td>Image</td>
-                        <td>Yes</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
@@ -44,7 +44,7 @@
                         <th scope="row">1</th>
                         <td>Misc Image</td>
                         <td>Image</td>
-                        <td>Yes</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
@@ -55,7 +55,7 @@
                         <th scope="row">1</th>
                         <td>Misc Image</td>
                         <td>Image</td>
-                        <td>Yes</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
@@ -66,7 +66,7 @@
                         <th scope="row">1</th>
                         <td>Misc Image</td>
                         <td>Image</td>
-                        <td>Yes</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
@@ -77,7 +77,7 @@
                         <th scope="row">1</th>
                         <td>Misc Image</td>
                         <td>Image</td>
-                        <td>Yes</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
@@ -88,7 +88,7 @@
                         <th scope="row">1</th>
                         <td>Misc Image</td>
                         <td>Image</td>
-                        <td>Yes</td>
+                        <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
@@ -99,7 +99,7 @@
                         <th scope="row">1</th>
                         <td>Misc Image</td>
                         <td>Image</td>
-                        <td>Yes</td>
+                        <td>Yes <Switch /></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
@@ -114,11 +114,13 @@
 </template>
 
 <script>
+import Switch from '@/layouts/partials/Switch.vue';
 import Navigation from '@/layouts/Navigation.vue';
 export default {
   name: 'LibrariesView',
   components: {
-    Navigation
+    Navigation,
+    Switch,
   }
 }
 </script>
@@ -206,8 +208,7 @@ export default {
 
             .action{
                 display: flex;
-                gap: 20px;
-                justify-content: space-between;
+                gap: 30px;
                 align-items: center;
 
                 a{
