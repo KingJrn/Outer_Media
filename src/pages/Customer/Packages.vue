@@ -1,9 +1,11 @@
 <template>
     <mainView>
         <div class="main-container">
-            <!-- select user components  -->
-            <selectUsers />
-
+            <div class="image-header top">
+                <!-- select user components  -->
+                <selectUsers />
+                <div class="add-user">Add New Packages</div>
+            </div>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -241,9 +243,8 @@ export default {
 @import '@/assets/scss/shared/table.scss';
 
 .decision {
-    margin-right: ($standard * 12px);
+    margin-right: calculate-value(12px);
 }
-
 .vertical-line {
 
     width: 28px;

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // CUSTOM FONTS
 
 @font-face {
@@ -79,16 +81,11 @@ $default-spacing: (5px * 1.3333);
 // standard Measurement that correlate with  figma 
 
 
-// form this function below
-// if value = 1
-// @function calculate-value($value, $figma-screen-size: 1440px, $my-screen-size: 1920px) {
-//     $screen-ratio: $value / $figma-screen-size;
-//     $result: $screen-ratio * ($my-screen-size);
-//     @return $result;
-// }
-
-$standard: 1.3333;
-
+@function calculate-value($value, $figma-screen-size: 1440px) {
+    $screen-ratio: math.div($value,  $figma-screen-size);
+    $result: calc($screen-ratio * 100vw);
+    @return $result;
+}
 
 // letter-spacing
 $default-letter-sapcing: -0.01em;
@@ -100,23 +97,23 @@ $default-gap: 1;
 $nav-width: 230px;
 $nav-height: 57px;
 
-// General Styles
-// select,
-// textarea,
-// input {
-//     color: #000000;
-//     font-size: 14px;
 
-//     &:hover,
-//     &:active,
-//     &:focus,
-//     &:focus-visible {
-//         border-color: $zowasel-green !important;
-//         box-shadow: none !important;
-//     }
-// }
-// label {
-//     color: rgba(45, 55, 72, 0.8);
-//     font-size: 14px;
-//     font-weight: 900;
-// }
+// Schedules variables
+$default-height: 25px;
+$thumb-background: gainsboro;
+$time-line-color: #aeacac;
+$v-slider-track-color: #10ec10;
+
+// General Styles
+select,
+textarea,
+input {
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-visible {
+        border-color: $body-background-btn !important;
+        box-shadow: none !important;
+    }
+}
+

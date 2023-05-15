@@ -92,7 +92,7 @@ export default {
 @import '@/assets/scss/main.scss';
 
 .active-display {
-    margin-block: ($standard * 50px) ($standard * 15px);
+    margin-block: calculate-value(50px)  calculate-value(15px);
     @include textStyles('Poppins', 600, 20px, 36px);
     color: $body-color-primary-light;
 }
@@ -100,7 +100,7 @@ export default {
 .card-container {
     @include flexed-Container(row, flex-start, flex-start);
     flex-wrap: wrap;
-    gap: ($standard * 60px);
+    gap: calculate-value(60px);
 }
 
 .active-card {
@@ -109,10 +109,10 @@ export default {
 
     /* greyy */
     box-shadow: 2px 4px 24px 1px $body-box-shadow;
-    border-radius: ($standard * 16px);
+    border-radius: calculate-value(16px);
 
     img {
-        border-radius: ($standard * 16px) ($standard * 16px) 0px 0px;
+        border-radius: calculate-value(16px) calculate-value(16px) 0px 0px;
     }
 
     .text-top {
@@ -126,7 +126,7 @@ export default {
     }
 
     .card-body {
-        margin-left: ($standard * 21px);
+        margin-left: calculate-value(21px);
     }
 }
 </style>

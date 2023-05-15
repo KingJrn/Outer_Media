@@ -32,7 +32,7 @@ nav {
     border-radius: $default-border-radius;
     @include flexed-Container(row, space-between);
     height: $nav-height;
-    padding-inline: $standard * 44px;
+    padding-inline:  calculate-value(44px);
     position: fixed;
     top: 0;
     right: 0;

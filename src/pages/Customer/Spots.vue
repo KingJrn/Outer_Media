@@ -4,7 +4,7 @@
             <div class="image-header top">
                 <!-- select user components  -->
                 <selectUsers />
-                <div class="add-user">Add New Display</div>
+                <div class="add-user">Add New Spots</div>
             </div>
 
             <table class="table table-hover">
@@ -12,22 +12,26 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Last Activity</th>
-                        <th scope="col">Package Played</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Last Modified</th>
+                        <th scope="col">Background Image</th>
+                        <th scope="col" class="action-header">Action </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="row">7</td>
-                        <td>Game Room</td>
-                        <td>47 seconds ago</td>
-                        <td>Upcoming Actss</td>
-                        <td colspan="4" class="actions">
+                        <td scope="row">233</td>
+                        <td>Wednesday Karaoke</td>
+                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/flowers.svg" alt="flowers" />
+
+                        </td>
+                        <td colspan="5" class="actions">
+                            <span class="vertical-line"></span>
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Packages</span>
+                            <span class="packages">Assign</span>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -39,15 +43,19 @@
                     </tr>
 
                     <tr>
-                        <td scope="row">7</td>
-                        <td>Game Room</td>
-                        <td>47 seconds ago</td>
-                        <td>Upcoming Actss</td>
-                        <td colspan="4" class="actions">
+                        <td scope="row">233</td>
+                        <td>Wednesday Karaoke</td>
+                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/flowers.svg" alt="flowers" />
+
+                        </td>
+                        <td colspan="5" class="actions">
+                            <span class="vertical-line"></span>
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Packages</span>
+                            <span class="packages">Assign</span>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -59,15 +67,19 @@
                     </tr>
 
                     <tr>
-                        <td scope="row">7</td>
-                        <td>Game Room</td>
-                        <td>47 seconds ago</td>
-                        <td>Upcoming Actss</td>
-                        <td colspan="4" class="actions">
+                        <td scope="row">233</td>
+                        <td>Wednesday Karaoke</td>
+                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/flowers.svg" alt="flowers" />
+
+                        </td>
+                        <td colspan="5" class="actions">
+                            <span class="vertical-line"></span>
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Packages</span>
+                            <span class="packages">Assign</span>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -79,15 +91,19 @@
                     </tr>
 
                     <tr>
-                        <td scope="row">7</td>
-                        <td>Game Room</td>
-                        <td>47 seconds ago</td>
-                        <td>Upcoming Actss</td>
-                        <td colspan="4" class="actions">
+                        <td scope="row">233</td>
+                        <td>Wednesday Karaoke</td>
+                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/flowers.svg" alt="flowers" />
+
+                        </td>
+                        <td colspan="5" class="actions">
+                            <span class="vertical-line"></span>
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Packages</span>
+                            <span class="packages">Assign</span>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -99,15 +115,19 @@
                     </tr>
 
                     <tr>
-                        <td scope="row">7</td>
-                        <td>Game Room</td>
-                        <td>47 seconds ago</td>
-                        <td>Upcoming Actss</td>
-                        <td colspan="4" class="actions">
+                        <td scope="row">233</td>
+                        <td>Wednesday Karaoke</td>
+                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/flowers.svg" alt="flowers" />
+
+                        </td>
+                        <td colspan="5" class="actions">
+                            <span class="vertical-line"></span>
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Packages</span>
+                            <span class="packages">Assign</span>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -119,15 +139,19 @@
                     </tr>
 
                     <tr>
-                        <td scope="row">7</td>
-                        <td>Game Room</td>
-                        <td>47 seconds ago</td>
-                        <td>Upcoming Actss</td>
-                        <td colspan="4" class="actions">
+                        <td scope="row">233</td>
+                        <td>Wednesday Karaoke</td>
+                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/flowers.svg" alt="flowers" />
+
+                        </td>
+                        <td colspan="5" class="actions">
+                            <span class="vertical-line"></span>
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Packages</span>
+                            <span class="packages">Assign</span>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -139,15 +163,19 @@
                     </tr>
 
                     <tr>
-                        <td scope="row">7</td>
-                        <td>Game Room</td>
-                        <td>47 seconds ago</td>
-                        <td>Upcoming Actss</td>
-                        <td colspan="4" class="actions">
+                        <td scope="row">233</td>
+                        <td>Wednesday Karaoke</td>
+                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>
+                            <img class="table-icon" src="@/assets/images/vectors/flowers.svg" alt="flowers" />
+
+                        </td>
+                        <td colspan="5" class="actions">
+                            <span class="vertical-line"></span>
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Packages</span>
+                            <span class="packages">Assign</span>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -157,10 +185,9 @@
                             </span>
                         </td>
                     </tr>
+
                 </tbody>
             </table>
-            <!-- pagination -->
-            <pagination />
         </div>
     </mainView>
 </template>
@@ -168,13 +195,19 @@
 <script>
 import mainView from '@/layouts/partials/mainView.vue'
 import selectUsers from '@/layouts/partials/selectUsers.vue'
-import pagination from '@/layouts/partials/pagination.vue'
 export default {
-    name: 'Users',
+    name: 'Spots',
     components: {
         mainView,
         selectUsers,
-        pagination
+    },
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+
     }
 }
 </script>
@@ -182,4 +215,17 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/main.scss';
 @import '@/assets/scss/shared/table.scss';
+
+.vertical-line {
+
+    width: 28px;
+    height: 0px;
+    border: $default-border-2 $table-border-color;
+    transform: rotate(90deg);
+}
+
+.action-header {
+    position: relative;
+    left: 6.5rem;
+}
 </style>

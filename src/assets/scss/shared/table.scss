@@ -1,6 +1,6 @@
 // Table
 table {
-    margin-top: $standard * 54px;
+    margin-top: calculate-value(54px);
 }
 
 thead tr th {
@@ -28,7 +28,7 @@ tr:last-child {
 
     >img,
     >span {
-        margin-right: ($standard * 21px);
+        margin-right: calculate-value(21px);
         vertical-align: middle;
     }
 

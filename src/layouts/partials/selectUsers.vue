@@ -13,8 +13,6 @@
                 </select>
             </form>
         </div>
-        <div class="add-user">Add New User</div>
-
     </div>
 </template>
 
@@ -28,23 +26,20 @@ export default {
 
 .select-users {
     @include flexed-Container(row, space-between);
-    margin-top: ($standard * 39px);
-
 }
 
 .select {
     @include flexed-Container(row, space-between);
-    gap: ($standard * 18px);
+    gap: calculate-value(18px);
 
     .search {
         position: relative;
 
         input {
-            background: #F9FBFF;
             border: $default-border-1 $body-border-color-3;
             border-radius: $default-spacing * 2;
-            width: ($standard * 240.55px);
-            padding-left: ($standard * 44.4px);
+            width: calculate-value(240.55px);
+            padding-left:  calculate-value(44.4px);
             background: $body-input;
 
             &::placeholder {
@@ -64,22 +59,13 @@ export default {
 
     select {
 
-        width: ($standard * 118px);
-        padding-left: ($standard * 17.5px);
+        width: calculate-value(118px);
+        padding-left: calculate-value(17.5px);
         background: $body-input;
         @include textStyles('Poppins', 400, 12px, 18px);
         letter-spacing: $default-letter-sapcing;
         color: $body-small-text;
         border-radius: $default-spacing * 2;
     }
-}
-
-.add-user {
-    padding: ($standard * 8px) ($standard * 10px);
-    background: #111C39;
-    border: $default-border-3 $body-border-color-4;
-    border-radius: 6px;
-    color: $color-brand-primary;
-    width: ($standard * 112px);
 }
 </style>

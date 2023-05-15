@@ -100,7 +100,32 @@ const router = createRouter({
       path: '/packages',
       name: 'Packages',
       component: () => import('../pages/Customer/Packages.vue')
-    }
+    },
+    {
+      path: '/spots',
+      name: 'Spots',
+      component: () => import('../pages/Customer/Spots.vue')
+    },
+    {
+      path: '/crawlers',
+      name: 'Crawlers',
+      component: () => import('../pages/Customer/Crawlers.vue')
+    },
+    {
+      path: '/images',
+      name: 'Images',
+      component: () => import('../pages/Customer/Images.vue')
+    },
+    {
+      path: '/schedule',
+      name: 'Schedule',
+      component: () => import('../pages/Customer/Schedule.vue')
+    },
+    {
+      path: '/tempschedule',
+      name: 'TemporarySchedule',
+      component: () => import('../pages/Customer/TemporarySchedule.vue')
+    },
   ]
 })
 

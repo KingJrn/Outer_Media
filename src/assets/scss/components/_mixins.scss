@@ -1,7 +1,8 @@
+
 // MIXINS
 
 @mixin flexed-Container($direction: row, $justify-content: center, $align-items: center) {
-    flex-direction: $direction;  
+    flex-direction: $direction;
     justify-content: $justify-content;
     align-items: $align-items;
     display: flex;
@@ -15,7 +16,12 @@
 //     ms (Internet Explorer and Microsoft Edge, before Chromium)
 
 // List of browsers prefixes
-$prefixes: ("webkit", "moz", "o", "ms");
+$prefixes: (
+    "webkit",
+    "moz",
+    "o",
+    "ms"
+);
 
 @mixin vendorPrefixes($property, $value, $prefixes) {
     @each $prefix in $prefixes {
@@ -25,26 +31,47 @@ $prefixes: ("webkit", "moz", "o", "ms");
 
 @mixin textStyles($font-family, $font-weight, $font-size, $line-height) {
     font-family: $font-family;
-    font-size: $font-size * $standard;
+    font-size: calculate-value($font-size);
     font-style: normal;
     font-weight: $font-weight;
-    line-height: $line-height * $standard;
+    line-height: calculate-value($line-height);
 }
 
 // UTILITIES
-.hover:hover{
-    background-color: darken(white, 10% );
+
+.hover:hover {
+    background-color: darken(white, 10%);
 }
+
+.add-user {
+    padding: calculate-value(8px) calculate-value(10px);
+    background: #111C39;
+    border: $default-border-3 $body-border-color-4;
+    border-radius: 6px;
+    color: $color-brand-primary;
+    width: 175px;
+    text-align: center;
+}
+
+.image-header {
+    @include flexed-Container(row, space-between);
+}
+.top{
+    margin-top: calculate-value(39px);
+}
+
 // Placeholders
 %background {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-%sidebar-padding-inline{
+
+%sidebar-padding-inline {
     padding-inline: 27px 6px;
 }
-%table-padding{
+
+%table-padding {
     padding: 7px 8px;
     border-radius: 7px;
 
