@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Dashboard from '../pages/Customer/Dashboard.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+import Dashboard from '../pages/Customer/Dashboard.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,9 +18,9 @@ const router = createRouter({
       component: () => import('../pages/Customer/LiveView.vue')
     },
     {
-      path: '/users',
-      name: 'Users',
-      component: () => import('../pages/Customer/Users.vue')
+      path: '/user',
+      name: 'User',
+      component: () => import('../pages/Customer/User.vue')
     },
     {
       path: '/mydisplays',
@@ -56,6 +56,35 @@ const router = createRouter({
       path: '/tempschedule',
       name: 'TemporarySchedule',
       component: () => import('../pages/Customer/TemporarySchedule.vue')
+    },
+
+    {
+      path: '/tempschedule',
+      name: 'TemporarySchedule',
+      component: () => import('../pages/Customer/TemporarySchedule.vue')
+    },
+
+    /* ---------------------------------- Views --------------------------------- */
+
+    {
+      path: '/adduser',
+      name: 'AddNewUser',
+      component: () => import('../views/AddNewUser.vue')
+    },
+    {
+      path: '/edituser',
+      name: 'Edituser',
+      component: () => import('../views/EditUser.vue')
+    },
+    {
+      path: '/addnewdisplay',
+      name: 'AddNewDisplay',
+      component: () => import('../views/AddNewDisplay.vue')
+    },
+    {
+      path: '/editdisplay',
+      name: 'EditNewDisplay',
+      component: () => import('../views/EditNewDisplay.vue')
     },
   ]
 })

@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/users">
+                <a class="nav-link" href="/user">
                     <img class="dark" src="@/assets/images/vectors/darkusers.svg" alt="user">
                     <img class="light" src="@/assets/images/vectors/users.svg" alt="user">
                     <span> Users</span>

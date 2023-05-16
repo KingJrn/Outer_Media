@@ -4,10 +4,8 @@
             <div class="image-header top">
                 <!-- select user components  -->
                 <selectUsers />
-                <div class="add-user">Add New User</div>
+                <RouterLink to="/adduser" class="add-user">Add New User</RouterLink>
             </div>
-
-
             <!-- table -->
             <table class="table table-hover">
                 <thead>
@@ -28,7 +26,8 @@
                         <td>Jul, 31, 2023</td>
                         <td>Never</td>
                         <td colspan="2" class="actions">
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/edituser" class="edited edit">Edit</RouterLink>
+
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                         </td>
                     </tr>
@@ -39,7 +38,8 @@
                         <td>Jul, 31, 2023</td>
                         <td>Never</td>
                         <td colspan="2" class="actions">
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/edituser" class="edited edit">Edit</RouterLink>
+
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                         </td>
                     </tr>
@@ -50,7 +50,8 @@
                         <td>Jul, 31, 2023</td>
                         <td>Never</td>
                         <td colspan="2" class="actions">
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/edituser" class="edited edit">Edit</RouterLink>
+
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                         </td>
                     </tr>
@@ -61,7 +62,8 @@
                         <td>Jul, 31, 2023</td>
                         <td>Never</td>
                         <td colspan="2" class="actions">
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/edituser" class="edited edit">Edit</RouterLink>
+
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                         </td>
                     </tr>
@@ -72,7 +74,8 @@
                         <td>Jul, 31, 2023</td>
                         <td>Never</td>
                         <td colspan="2" class="actions">
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/edituser" class="edited edit">Edit</RouterLink>
+
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                         </td>
                     </tr>
@@ -83,7 +86,8 @@
                         <td>Jul, 31, 2023</td>
                         <td>Never</td>
                         <td colspan="2" class="actions">
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/edituser" class="edited edit">Edit</RouterLink>
+
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                         </td>
                     </tr>
@@ -94,7 +98,8 @@
                         <td>Jul, 31, 2023</td>
                         <td>Never</td>
                         <td colspan="2" class="actions">
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/edituser" class="edited edit">Edit</RouterLink>
+
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                         </td>
                     </tr>
@@ -105,7 +110,7 @@
                         <td>Jul, 31, 2023</td>
                         <td>Never</td>
                         <td colspan="2" class="actions">
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/edituser" class="edited edit">Edit</RouterLink>
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
                         </td>
                     </tr>
@@ -114,24 +119,34 @@
 
             <!-- pagination -->
             <pagination />
+            <!-- routerview -->
+            <RouterView />
         </div>
     </mainView>
 </template>
 
-<script>
+<script >
 import mainView from '@/layouts/partials/mainView.vue'
 import selectUsers from '@/layouts/partials/selectUsers.vue'
 import pagination from '@/layouts/partials/pagination.vue'
+import { RouterLink } from 'vue-router';
 export default {
-    name: 'Users',
+    name: 'User',
     components: {
         mainView,
         selectUsers,
-        pagination
-    }
+        pagination,
+        RouterLink
+    },
+
 }
 </script>
 <style lang="scss" scoped>
 @import '@/assets/scss/main.scss';
 @import '@/assets/scss/shared/table.scss';
+
+button {
+    color: $nav-text-primary-dark;
+
+}
 </style>
