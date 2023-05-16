@@ -145,8 +145,4 @@ export default {
 @import '@/assets/scss/main.scss';
 @import '@/assets/scss/shared/table.scss';
 
-button {
-    color: $nav-text-primary-dark;
-
-}
 </style>
