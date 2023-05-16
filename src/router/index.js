@@ -86,6 +86,11 @@ const router = createRouter({
       name: 'EditNewDisplay',
       component: () => import('../views/EditNewDisplay.vue')
     },
+    {
+      path: '/newpackage',
+      name: 'NewPackage',
+      component: () => import('../views/NewPackage.vue')
+    },
   ]
 })
 
