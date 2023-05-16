@@ -4,7 +4,7 @@
             <div class="image-header top">
                 <!-- select user components  -->
                 <selectUsers />
-                <div class="add-user">Add New Display</div>
+                <RouterLink to="/addnewdisplay" class="add-user">Add New Display</RouterLink>
             </div>
 
             <table class="table table-hover">
@@ -25,8 +25,8 @@
                         <td>Upcoming Actss</td>
                         <td colspan="4" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
+                            <RouterLink to="/editdisplay" class="edited edit">Edit</RouterLink>
 
-                            <span class="edit">Edit</span>
                             <span class="packages">Packages</span>
                             <span class="play-view">
                                 <span class="view">View</span>
@@ -46,7 +46,7 @@
                         <td colspan="4" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/editdisplay" class="edited edit">Edit</RouterLink>
                             <span class="packages">Packages</span>
                             <span class="play-view">
                                 <span class="view">View</span>
@@ -66,7 +66,7 @@
                         <td colspan="4" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/editdisplay" class="edited edit">Edit</RouterLink>
                             <span class="packages">Packages</span>
                             <span class="play-view">
                                 <span class="view">View</span>
@@ -86,7 +86,7 @@
                         <td colspan="4" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/editdisplay" class="edited edit">Edit</RouterLink>
                             <span class="packages">Packages</span>
                             <span class="play-view">
                                 <span class="view">View</span>
@@ -106,7 +106,7 @@
                         <td colspan="4" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/editdisplay" class="edited edit">Edit</RouterLink>
                             <span class="packages">Packages</span>
                             <span class="play-view">
                                 <span class="view">View</span>
@@ -126,7 +126,7 @@
                         <td colspan="4" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/editdisplay" class="edited edit">Edit</RouterLink>
                             <span class="packages">Packages</span>
                             <span class="play-view">
                                 <span class="view">View</span>
@@ -146,7 +146,7 @@
                         <td colspan="4" class="actions">
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
-                            <span class="edit">Edit</span>
+                            <RouterLink to="/editdisplay" class="edited edit">Edit</RouterLink>
                             <span class="packages">Packages</span>
                             <span class="play-view">
                                 <span class="view">View</span>
@@ -161,6 +161,10 @@
             </table>
             <!-- pagination -->
             <pagination />
+
+            <!-- routerview -->
+            <RouterView />
+
         </div>
     </mainView>
 </template>
@@ -169,12 +173,16 @@
 import mainView from '@/layouts/partials/mainView.vue'
 import selectUsers from '@/layouts/partials/selectUsers.vue'
 import pagination from '@/layouts/partials/pagination.vue'
+import { RouterLink } from 'vue-router';
+
 export default {
     name: 'Users',
     components: {
         mainView,
         selectUsers,
-        pagination
+        pagination,
+        RouterLink
+
     }
 }
 </script>

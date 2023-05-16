@@ -66,6 +66,13 @@ $table-border-color: rgba(67, 17, 207, 0.18);
 $body-border-color-5: #EEEEEE;
 
 
+// input
+$form-colors:#E8E9EA;
+$form-colors-darker: #949CA9;
+
+//button
+$button-color:  #1A1038;
+
 // Border Measurement
 $default-border-radius: 4px;
 
@@ -76,7 +83,7 @@ $default-border-4: 4px solid;
 
 
 // margin and padding spacing Measurement
-$default-spacing: (5px * 1.3333);
+$default-spacing: 5px;
 
 // standard Measurement that correlate with  figma 
 
@@ -115,5 +122,8 @@ input {
         border-color: $body-background-btn !important;
         box-shadow: none !important;
     }
+}
+a{
+    text-decoration: none;
 }
 
