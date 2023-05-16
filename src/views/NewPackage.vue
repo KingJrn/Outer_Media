@@ -31,7 +31,9 @@ export default {
         @include textStyles('Poppins', 600, 18px, 27px);
         letter-spacing: -0.01em;
         color: rgba(0, 0, 0, 0.71);
-
+    }
+    hr{
+        
     }
 }
 </style>
