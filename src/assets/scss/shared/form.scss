@@ -1,0 +1,60 @@
+
+.form-data {
+    margin-top: 60px;
+    margin-inline: 118px;
+}
+
+.header-sect {
+    margin-top: 56px;
+    text-align: center;
+
+    h2 {
+        @include textStyles('Poppins', 500, 24px, 36px);
+        color: #282828;
+        margin-bottom: 5px;
+    }
+
+    p {
+        @include textStyles('Poppins', 400, 14px, 22px);
+        color: #949CA9;
+    }
+}
+
+.edit-group {
+    gap: 20px;
+
+    label {
+        @include textStyles('Poppins', 500, 14px, 22px);
+        color: $nav-text-primary-dark;
+        margin-bottom: $default-spacing;
+    }
+
+    input {
+        padding: 15px;
+        background: $color-brand-primary;
+        border: 1px solid $form-colors;
+        border-radius: 6px;
+
+
+        &::placeholder {
+            @include textStyles('Poppins', 400, 14px, 22px);
+            color: $form-colors-darker;
+        }
+    }
+}
+form{
+    @include flexed-Container(column)
+}
+button.add {
+    padding: 14px 49px;
+    background: $button-color;
+    border-radius: 6px;
+    width: 80%;
+    margin-top: 56px;
+    @include textStyles('Poppins', 600, 16px, 24px);
+    color: $color-brand-primary;
+    &:hover{
+        background-color: darken($button-color,  10%);
+    }
+
+}

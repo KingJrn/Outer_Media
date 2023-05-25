@@ -1,5 +1,6 @@
+import { createRouter, createWebHistory } from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router';
-// import HomeView from '../pages/Customer/HomeView.vue';
+import Dashboard from '../pages/Customer/Dashboard.vue'
 import AdminLogin from '../pages/admin/AdminLogin.vue';
 import Organizations from '../pages/admin/Organizations.vue';
 import AddOrganization from '../pages/admin/AddOrganization.vue';
@@ -87,9 +88,9 @@ const router = createRouter({
       component: () => import('../pages/Customer/LiveView.vue')
     },
     {
-      path: '/users',
-      name: 'Users',
-      component: () => import('../pages/Customer/Users.vue')
+      path: '/user',
+      name: 'User',
+      component: () => import('../pages/Customer/User.vue')
     },
     {
       path: '/mydisplays',
@@ -125,6 +126,40 @@ const router = createRouter({
       path: '/tempschedule',
       name: 'TemporarySchedule',
       component: () => import('../pages/Customer/TemporarySchedule.vue')
+    },
+
+    {
+      path: '/tempschedule',
+      name: 'TemporarySchedule',
+      component: () => import('../pages/Customer/TemporarySchedule.vue')
+    },
+
+    /* ---------------------------------- Views --------------------------------- */
+
+    {
+      path: '/adduser',
+      name: 'AddNewUser',
+      component: () => import('../views/AddNewUser.vue')
+    },
+    {
+      path: '/edituser',
+      name: 'Edituser',
+      component: () => import('../views/EditUser.vue')
+    },
+    {
+      path: '/addnewdisplay',
+      name: 'AddNewDisplay',
+      component: () => import('../views/AddNewDisplay.vue')
+    },
+    {
+      path: '/editdisplay',
+      name: 'EditNewDisplay',
+      component: () => import('../views/EditNewDisplay.vue')
+    },
+    {
+      path: '/newpackage',
+      name: 'NewPackage',
+      component: () => import('../views/NewPackage.vue')
     },
   ]
 })
