@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="right-side">
-                    <a href="/addlibrary">Add New Library</a>
+                    <a href="/addpreset">Add New Preset</a>
                 </div>
             </div>
             <table class="table">
