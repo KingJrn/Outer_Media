@@ -29,7 +29,7 @@
         margin-bottom: $default-spacing;
     }
 
-    input {
+    input,select {
         padding: 15px;
         background: $color-brand-primary;
         border: 1px solid $form-colors;

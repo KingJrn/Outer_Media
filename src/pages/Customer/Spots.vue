@@ -4,7 +4,8 @@
             <div class="image-header top">
                 <!-- select user components  -->
                 <selectUsers />
-                <div class="add-user">Add New Spots</div>
+                <RouterLink to="/assignedspot" class="add-user">Add New Spots</RouterLink>
+
             </div>
 
             <table class="table table-hover">
@@ -31,7 +32,7 @@
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Assign</span>
+                            <RouterLink to="/addassignedspot" class="packages">Assign</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -55,7 +56,7 @@
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Assign</span>
+                            <RouterLink to="/addassignedspot" class="packages">Assign</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -79,7 +80,7 @@
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Assign</span>
+                            <RouterLink to="/addassignedspot" class="packages">Assign</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -103,7 +104,7 @@
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Assign</span>
+                            <RouterLink to="/addassignedspot" class="packages">Assign</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -127,7 +128,7 @@
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Assign</span>
+                            <RouterLink to="/addassignedspot" class="packages">Assign</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -151,7 +152,7 @@
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Assign</span>
+                            <RouterLink to="/addassignedspot" class="packages">Assign</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -175,7 +176,7 @@
                             <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
 
                             <span class="edit">Edit</span>
-                            <span class="packages">Assign</span>
+                            <RouterLink to="/addassignedspot" class="packages">Assign</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -228,4 +229,6 @@ export default {
     position: relative;
     left: 6.5rem;
 }
+
+
 </style>
