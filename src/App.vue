@@ -7,6 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 <style>
+
   html {
   font-size: 16px;
 }

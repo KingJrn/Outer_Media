@@ -1,7 +1,7 @@
 <template>
     <Navigation>
         <main>
-            <div class="content-wrapper">
+            <div :class="[shouldRenderElement ? 'form-edit' : 'content_wrapper']">
                 <slot></slot>
             </div>
         </main>
@@ -9,13 +9,31 @@
 </template>
 
 <script>
-import Navigation from '../Navigation.vue'
+import Navigation from '../Navigation.vue';
+
 export default {
     name: 'MainView',
     components: {
         Navigation
+    },
+    data() {
+        return {
+            routes: [
+                { path: '/adduser', name: 'AddNewUser' },
+                { path: '/edituser', name: 'Edituser' },
+                { path: '/addnewdisplay', name: 'AddNewDisplay' },
+                { path: '/editdisplay', name: 'EditNewDisplay' },
+                // Add more routes as needed
+            ]
+        };
+    },
+    computed: {
+        shouldRenderElement() {
+            const currentRoute = this.$route.path;
+            return this.routes.some(route => route.path === currentRoute);
+        }
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -27,12 +45,24 @@ main {
     background: $color-brand-primary;
 }
 
-.content-wrapper {
-    width: 95.2%;
-    padding-bottom: $default-spacing * 18;
-    box-shadow: 2px 4px 24px 1px $body-box-shadow;
-    border: $default-border-2 $body-border-color;
+.main-wrapper {
     border-radius: ($default-border-radius * 3) - 1;
+    border: $default-border-2 $body-border-color;
+    box-shadow: 2px 4px 24px 1px $body-box-shadow;
+    padding-bottom: $default-spacing * 18;
+}
+
+.content_wrapper {
+    @extend .main-wrapper;
+    width: 95.2%;
     padding-inline: calculate-value(62px);
+}
+
+.form-edit {
+    @extend .main-wrapper;
+    width: 63.54%;
+    height: calculate-value(549px);
+    margin-top: calculate-value(40px);
+    margin-left: calculate-value(116px);
 }
 </style>
