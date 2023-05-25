@@ -34,7 +34,7 @@
 
                             <span class="edit">Edit</span>
                             <span class="packages">Menu</span>
-                            <span class="packages">Spots</span>
+                            <RouterLink to="/assigned" class="packages">Spot</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -60,34 +60,7 @@
 
                             <span class="edit">Edit</span>
                             <span class="packages">Menu</span>
-                            <span class="packages">Spots</span>
-                            <span class="play-view">
-                                <span class="view">View</span>
-                                <span>
-                                    <img class="table-icon play img-fluid " src="@/assets/images/vectors/play.svg"
-                                        alt="play-button" />
-                                </span>
-                            </span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td scope="row">233</td>
-                        <td>upcoming Acts</td>
-                        <td>Dec 22, 2021 04:12 pm EST</td>
-                        <td>Game Room</td>
-                        <td colspan="2">
-                            <span class="no decision" v-if="eventData">NO</span>
-                            <span class="yes decision" v-else>Yes</span>
-                            <Switch @checkboxEvent="updateData" />
-                        </td>
-                        <td colspan="6" class="actions">
-                            <span class="vertical-line"></span>
-                            <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
-
-                            <span class="edit">Edit</span>
-                            <span class="packages">Menu</span>
-                            <span class="packages">Spots</span>
+                            <RouterLink to="/assigned" class="packages">Spot</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -114,7 +87,7 @@
 
                             <span class="edit">Edit</span>
                             <span class="packages">Menu</span>
-                            <span class="packages">Spots</span>
+                            <RouterLink to="/assigned" class="packages">Spot</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -141,7 +114,7 @@
 
                             <span class="edit">Edit</span>
                             <span class="packages">Menu</span>
-                            <span class="packages">Spots</span>
+                            <RouterLink to="/assigned" class="packages">Spot</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -168,7 +141,34 @@
 
                             <span class="edit">Edit</span>
                             <span class="packages">Menu</span>
-                            <span class="packages">Spots</span>
+                            <RouterLink to="/assigned" class="packages">Spot</RouterLink>
+                            <span class="play-view">
+                                <span class="view">View</span>
+                                <span>
+                                    <img class="table-icon play img-fluid " src="@/assets/images/vectors/play.svg"
+                                        alt="play-button" />
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td scope="row">233</td>
+                        <td>upcoming Acts</td>
+                        <td>Dec 22, 2021 04:12 pm EST</td>
+                        <td>Game Room</td>
+                        <td colspan="2">
+                            <span class="no decision" v-if="eventData">NO</span>
+                            <span class="yes decision" v-else>Yes</span>
+                            <Switch @checkboxEvent="updateData" />
+                        </td>
+                        <td colspan="6" class="actions">
+                            <span class="vertical-line"></span>
+                            <img class="table-icon" src="@/assets/images/vectors/trash.svg" alt="trash" />
+
+                            <span class="edit">Edit</span>
+                            <span class="packages">Menu</span>
+                            <RouterLink to="/assigned" class="packages">Spot</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
@@ -194,7 +194,7 @@
 
                             <span class="edit">Edit</span>
                             <span class="packages">Menu</span>
-                            <span class="packages">Spots</span>
+                            <RouterLink to="/assigned" class="packages">Spot</RouterLink>
                             <span class="play-view">
                                 <span class="view">View</span>
                                 <span>
