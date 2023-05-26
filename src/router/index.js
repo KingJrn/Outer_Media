@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../pages/Customer/Dashboard.vue'
 import AdminLogin from '../pages/admin/AdminLogin.vue';
 import Organizations from '../pages/admin/Organizations.vue';
@@ -11,8 +10,6 @@ import AddLibrary from '../pages/admin/AddLibrary.vue';
 import Preset from '../pages/admin/Preset.vue';
 import AddPreset from '../pages/admin/AddPreset.vue';
 import SiteSettings from '../pages/admin/SiteSettings.vue';
-import Dashboard from '../pages/Customer/Dashboard.vue';
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
