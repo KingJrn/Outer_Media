@@ -167,6 +167,16 @@ const router = createRouter({
       name: 'AddNewSpots',
       component: () => import('../views/AddNewSpot.vue')
     },
+    {
+      path: '/newimages',
+      name: 'AddNewImages',
+      component: () => import('../views/AddNewImags.vue')
+    },
+    {
+      path: '/newcrawler',
+      name: 'NewCrawler',
+      component: () => import('../views/NewCrawler.vue')
+    },
   ]
 })
 
