@@ -9,7 +9,7 @@
             <div class="image-header top">
                 <!-- select user components  -->
                 <selectUsers />
-                <div class="add-user">Add New Crawler</div>
+                <RouterLink to="/newcrawler" class="add-user">Add New Crawler</RouterLink>
             </div>
 
 

@@ -14,7 +14,7 @@
 
                     <selectUsers />
                 </div>
-                <div class="add-user">Add New Image</div>
+                <RouterLink to="/newimages" class="add-user">Add New Image</RouterLink>
             </div>
 
             <table class="table table-hover">
