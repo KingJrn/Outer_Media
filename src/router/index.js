@@ -3,8 +3,8 @@ import Dashboard from '../pages/Customer/Dashboard.vue'
 import AdminLogin from '../pages/admin/AdminLogin.vue';
 import Organizations from '../pages/admin/Organizations.vue';
 import AddOrganization from '../pages/admin/AddOrganization.vue';
-import Images from '../pages/admin/Images.vue';
-import AddImage from '../pages/admin/AddImages.vue';
+import AdminImages from '../pages/admin/Images.vue';
+import AdminAddImage from '../pages/admin/AddImages.vue';
 import Libraries from '../pages/admin/Libraries.vue';
 import AddLibrary from '../pages/admin/AddLibrary.vue';
 import Preset from '../pages/admin/Preset.vue';
@@ -34,14 +34,14 @@ const router = createRouter({
       component: AddOrganization
     },
     {
-      path: '/images',
-      name: 'Images',
-      component: Images
+      path: '/adminimages',
+      name: 'AdminImages',
+      component: AdminImages
     },
     {
-      path: '/addimage',
-      name: 'AddImage',
-      component: AddImage
+      path: '/adminaddimage',
+      name: 'AdminAddImage',
+      component: AdminAddImage
     },
     {
       path: '/libraries',
@@ -112,11 +112,11 @@ const router = createRouter({
       name: 'Schedule',
       component: () => import('../pages/Customer/Schedule.vue')
     },
-    {
-      path: '/tempschedule',
-      name: 'TemporarySchedule',
-      component: () => import('../pages/Customer/TemporarySchedule.vue')
-    },
+    // {
+    //   path: '/tempschedule',
+    //   name: 'TemporarySchedule',
+    //   component: () => import('../pages/Customer/TemporarySchedule.vue')
+    // },
 
     {
       path: '/tempschedule',
