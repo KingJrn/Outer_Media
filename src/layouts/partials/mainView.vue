@@ -22,7 +22,7 @@ export default {
                 { path: '/adduser', name: 'AddNewUser' },
                 { path: '/edituser', name: 'Edituser' },
                 { path: '/addnewdisplay', name: 'AddNewDisplay' },
-                { path: '/editdisplay', name: 'EditNewDisplay' },
+                { path: '/addassignedspot', name: 'AddAssignedSpot' },
                 // Add more routes as needed
             ]
         };

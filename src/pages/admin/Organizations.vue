@@ -9,7 +9,7 @@
                     <select name="" id="">
                         <option value="8">display : 8</option>
                     </select>
-                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="help">
+                    <a @click="dialog = true" href="javascript:void(0)" class="help">
                         <p>Help</p>
                         <img src="@/assets/images/vectors/question.svg" alt="">
                     </a>
@@ -107,37 +107,36 @@
         </div>
     </div>
 
+    <v-dialog v-model="dialog" width="auto">
+        <v-card class="w-50 align-self-center">
+            <v-card-text class="w-100">
+                <h4>Organizations</h4>
+                <p>This Page Contains a List of Organizations on the platform, </p>
 
-<div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">About Libraries</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>This Page Contains a List of Organizations on the platform,</p>
-
-        <p>Click on the “Login” button on any organization to Login as 
-            that organization and manage the account
-        </p>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
+                <p> Click on the “Login” button on any organization to Login as that organization and manage the account. </p>
+            </v-card-text>
+            <!-- <v-card-actions>
+                <v-btn color="primary" block @click="dialog = false">Close Dialog</v-btn>
+            </v-card-actions> -->
+        </v-card>
+    </v-dialog>
 
   </Navigation>
 </template>
 
 <script>
+
 import Navigation from '@/layouts/Navigation.vue';
 export default {
   name: 'OrganizationsView',
   components: {
     Navigation
-  }
+  },
+   data() {
+        return {
+            dialog: false
+        }
+    },
 }
 </script>
 
@@ -225,8 +224,7 @@ export default {
 
             .action{
                 display: flex;
-                gap: 20px;
-                justify-content: space-between;
+                gap: 50px;
                 align-items: center;
 
                 a{
@@ -240,6 +238,8 @@ export default {
                 }
 
                 button{
+                    width: 100px;
+                    height: 40px;
                     background: #1B1137;
                     border: 3px solid rgba(27, 17, 55, 0.16);
                     border-radius: 4px;

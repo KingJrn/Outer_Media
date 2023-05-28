@@ -8,9 +8,9 @@
                     <option selected><span>Display : Back Room Display</span></option>
                 </select>
             </form>
-            <div class="help">
+            <div class="help" @click="dialog = true">
                 <span>Help</span>
-                <img class="table-icon" src="@/assets/images/vectors/questionMark.svg" alt="trash" />
+                <img class="table-icon" src="@/assets/images/vectors/questionMark.svg" alt="question mark" />
 
             </div>
         </div>
@@ -30,12 +30,32 @@
                         <div class="position-relative">
                             <v-range-slider v-model="valueMulti" strict :ripple="false" min="0" max="24" ticks="always"
                                 tick-size="0" :thumb-size="0" id="square-thumb" class="events-slider" />
-                            <div class="upoming-acts">12.00 am (Upcoming Acts)  {{ sliderLabel }}</div>
+                            <div class="upoming-acts">12.00 am (Upcoming Acts) {{ sliderLabel }}</div>
                         </div>
                     </div>
                 </v-card-text>
             </v-card>
         </v-app>
+        <!-- dialog box -->
+        <v-dialog v-model="dialog" width="auto">
+            <v-card class="w-50 align-self-center">
+                <v-card-text class="w-100">
+                    <h4>About Temporary Schedule</h4>
+                    Temporary Schedules take precedence over the regular schedule, and can be used to display something on a
+                    Display whenever you want without having to adjust the Weekly Schedules.
+
+                    Events added to this Priority Schedule are deleted after they finish and not repeated weekly.
+
+                    To add a schedule, click a white part of the timeline and choose a Package.
+
+                    To edit a schedule, click it on the timeline and use the slider handles to adjust the time. To delete a
+                    schedule, drag the slider handles together.
+                </v-card-text>
+                <v-card-actions>
+                    <v-btn color="primary" block @click="dialog = false">Close Dialog</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </mainView>
 </template>
 
@@ -49,7 +69,8 @@ export default {
     },
     data() {
         return {
-            valueMulti: [0, 24]
+            valueMulti: [0, 24],
+            dialog: false,
         }
     },
     computed: {
@@ -150,6 +171,7 @@ export default {
         color: $time-line-color;
 
     }
+
     // default value to calculate percentages values to place the the timeline span
     $left-value: 4.1667%;
 
@@ -207,7 +229,7 @@ export default {
 select #display {
 
     width: calculate-value(171.5px);
-    padding-left:calculate-value(17.5px);
+    padding-left: calculate-value(17.5px);
     background: $body-input;
     @include textStyles('Poppins', 400, 12px, 18px);
     letter-spacing: $default-letter-sapcing;
@@ -218,6 +240,8 @@ select #display {
 .help {
     @include flexed-Container(row, flex-start);
     gap: calculate-value(11px);
+    cursor: pointer;
+
 
     span {
         color: $nav-text-primary-bold;
