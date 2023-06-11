@@ -34,7 +34,7 @@ export default {
     },
     data() {
         return {
-            tab: 'background'
+            tab: 'general'
         };
     },
     methods: {
