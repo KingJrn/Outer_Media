@@ -7,22 +7,56 @@
                 <p class="text-center">Please enter your details to sign in</p>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Username</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Enter your Username">
+                    <input type="text" class="form-control" v-model="username"  placeholder="Enter your Username">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your Password">
+                    <input type="password" class="form-control" v-model="password" placeholder="Enter your Password">
                 </div>
                 
-                <div class="button-area"><button type="submit" class="btn btn-primary">Sign up</button></div>
+                <div class="button-area"><button @click="loginAccount()" type="submit" class="btn btn-primary">Signin</button></div>
             </form>
         </div>
     </div>
 </template>
 
 <script>
+    import Connection from '../../services/connection.js';
     export default {
     name: 'AdminLogin',
+    data (){
+        return {
+      email: "",
+      password: "",
+    };
+    },
+    methods:{
+        loginAccount() {
+      let vm = this;
+      Connection.loginUser(
+        {
+          email: vm.email,
+          password: vm.password,
+        },
+        (response) => {
+          if (!response.error) {
+            console.log(response)
+            this.$store.dispatch("setAuth", {
+              token: response.token,
+              key: response.user.user_id,
+            });
+
+
+          }
+        },
+        (error) => {
+          Alert.error({
+            message: error.message,
+          });
+        }
+      );
+    },
+    },
 }
 
 </script>
@@ -96,6 +130,7 @@
                         height: 48px;
                         background: #1A1038;
                         border-radius: 6px;
+                        color: white;
 
                     }
                 }

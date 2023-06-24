@@ -1,4 +1,4 @@
-BASE_URL: "https://om.test/api/";
+BASE_URL: "https://api.outer.media/api";
 import axios from "axios";
 
 
