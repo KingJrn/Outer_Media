@@ -20,7 +20,6 @@ const vuetify = createVuetify({
 })
 
 // Import the Bootstrap CSS and JS files
-import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
 // Import custom SCSS styles

@@ -126,7 +126,7 @@ import mainView from '@/layouts/partials/mainView.vue'
 import selectUsers from '@/layouts/partials/selectUsers.vue'
 import pagination from '@/layouts/partials/pagination.vue'
 export default {
-    name: 'Crawlers',
+    name: "Crawlers",
     components: {
         mainView,
         selectUsers,
