@@ -130,7 +130,7 @@ import Navigation from '@/layouts/Navigation.vue';
 export default {
   name: 'OrganizationsView',
   components: {
-    Navigation
+    Navigation,
   },
    data() {
         return {

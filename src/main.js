@@ -2,11 +2,12 @@
 import { createApp } from 'vue'
 
 // Import the createPinia function from the Pinia library
-import { createPinia } from 'pinia'
 
 // Import the App component and the router
 import App from './App.vue'
 import router from './router'
+import store from './store'
+import GlobalMixin from './mixins/global'
 
 // Vuetify
 import 'vuetify/styles'
@@ -28,13 +29,16 @@ import './assets/scss/main.scss'
 // Create a new Vue app instance
 const app = createApp(App)
 
-// Add the Pinia plugin to the Vue app
-app.use(createPinia())
 
 // Add the router to the Vue app
 app.use(router)
 
 //Add the Vuetify to the vue app
 app.use(vuetify)
+
+// add GlobalMixin to the app
+app.mixin(GlobalMixin)
+
+app.use(store)
 // Mount the Vue app to the DOM
 app.mount('#app')

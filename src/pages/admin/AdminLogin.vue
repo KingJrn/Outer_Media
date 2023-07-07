@@ -2,7 +2,7 @@
     <div class="big-container">
         <div class="left-side"></div>
         <div class="right-side">
-            <form action="">
+            <form action="#">
                 <h1 class="text-center">Sign In</h1>
                 <p class="text-center">Please enter your details to sign in</p>
                 <div class="form-group">
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="button-area">
-                    <button @click="login()" type="submit" class="btn btn-primary">Signin</button>
+                    <button @click="loginAccount()" type="button" class="btn btn-primary">Signin</button>
                 </div>
             </form>
         </div>
@@ -24,57 +24,55 @@
 
 <script>
 import apiServices from '@/services/apiServices.js'
-import { useCounterStore } from '@/stores/counter'
+// import { useCounterStore } from '@/stores/counter'
+// import store from '../../store';
 export default {
     name: 'AdminLogin',
     data() {
         return {
-            email: '',
+            username: '',
             password: '',
-            store: useCounterStore()
+            // store: useCounterStore()
         }
     },
-    methods: {
-        methods: {
-            async login() {
-                try {
-                    const csrfToken = await apiServices.obtainCsrfToken()
-                    const credentials = {
-                        username: 'superadmin',
-                        password: 'password'
-                    }
-                    const bearerToken = await apiServices.login(csrfToken, credentials)
-                    // Store the bearer token or use it for subsequent requests
-
-                    // Add your code here to handle successful login or redirect to a new page
-                } catch (error) {
-                    // Handle any errors that occur during login
-                    console.error(error.message)
-                    if (error.response) {
-                        if (error.response.status === 401) {
-                            // Unauthorized error (bearer token missing, malformed, or invalid)
-                            console.error('Authentication failed:', error.response.data)
-                        } else if (error.response.status === 403) {
-                            // Forbidden error (insufficient privileges)
-                            console.error('Insufficient privileges:', error.response.data)
-                        } else if (error.response.status === 404) {
-                            // Resource not found error
-                            console.error('Resource not found:', error.response.data)
-                        } else if (error.response.status === 422) {
-                            // Invalid request error (e.g., missing or invalid form data)
-                            console.error('Invalid request:', error.response.data)
-                        } else {
-                            // Other errors
-                            console.error('API request failed:', error.response.data)
-                        }
-                    } else {
-                        // Request failed without receiving a response
-                        console.error('API request failed:', error)
-                    }
-                }
-            }
-        }
+    created() {
+    if (this.$store.state.authData) {
+    //   this.$router.replace("/dashboard");
     }
+  },
+        methods: {
+            loginAccount() {
+      let vm = this;
+        apiServices.loginUser(
+        {
+          username: vm.username,
+          password: vm.password,
+        },
+        (response) => {
+          console.log(response)
+          if (!response.error) {
+            this.$store.dispatch("setAuth", {
+              token: response.data.token,
+              key: response.data.type,
+            });
+            this.$store.dispatch("setUser", response.user);
+            console.log(this.$store.state.authData)
+            window.localStorage.setItem("authToken", response.token);
+            vm.$router.push("/dashboard");
+          } else {
+            Alert.error({
+              message: response.message,
+            });
+          }
+          vm.isLoading = false;
+        },
+        (error) => {
+          console.log(error)
+        }
+      );
+    },
+        }
+
 }
 </script>
 

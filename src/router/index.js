@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from '../pages/Customer/Dashboard.vue'
-import AdminLogin from '../pages/admin/AdminLogin.vue';
+import Login from '../pages/admin/AdminLogin.vue';
 import Organizations from '../pages/admin/Organizations.vue';
 import AddOrganization from '../pages/admin/AddOrganization.vue';
 import AdminImages from '../pages/admin/Images.vue';
@@ -14,14 +14,14 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/dashboard',
       name: 'dashboard',
       component: Dashboard
     },
     {
-      path: '/login',
-      name: 'AdminLogin',
-      component: AdminLogin
+      path: '/',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/organizations',

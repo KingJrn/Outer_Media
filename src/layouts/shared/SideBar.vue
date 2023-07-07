@@ -7,7 +7,7 @@
         <!-- Menu List -->
         <ul id="sidebar" class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
+                <a class="nav-link active" aria-current="page" href="/dashboard">
                     <img class="dark" src="@/assets/images/vectors/darkdashs.svg" alt="dash">
                     <img class="light" src="@/assets/images/vectors/dash.svg" alt="dash">
                     <span> Dashboard</span>
@@ -81,7 +81,7 @@
             </li>
             <li class="nav-item">
 
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="javascript: void(0)" @click="logOut()">
                     <img class="dark" src="@/assets/images/vectors/darklogout.svg" alt="images">
                     <img class="light" src="@/assets/images/vectors/logoutsidebar.svg" alt="images">
                     <span>Logout</span>

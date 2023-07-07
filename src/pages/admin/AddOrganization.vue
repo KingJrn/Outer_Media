@@ -7,26 +7,46 @@
                 <div class="row">
                     <div class="col">
                         <label for="">Organization Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Organization name">
+                        <input type="text" class="form-control" v-model="orgName" placeholder="Enter Organization name">
                     </div>
                     <div class="col">
                         <label for="">Username</label>
-                        <input type="text" class="form-control" placeholder="Enter Organization username">
+                        <input type="text" class="form-control" v-model="OrgUsername" placeholder="Enter Organization username">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <label for="">Password</label>
-                    <input type="text" class="form-control" placeholder="Enter password">
+                    <input type="password" v-model="password" class="form-control" placeholder="Enter password">
                     </div>
                     <div class="col">
                         <label for="">Confirm Password</label>
-                    <input type="text" class="form-control" placeholder="Confirm Password">
+                    <input type="password" v-model="confirmPassword" class="form-control" placeholder="Confirm Password">
                     </div>
                 </div>
 
+                
+
+          <div class="required">
+            
+            
+            <div class="each-required">
+              <img
+                v-if="mustMatch"
+                src="@/assets/images/vectors/tick-right.svg"
+                alt=""
+              />
+              <img
+                v-if="!mustMatch"
+                src="@/assets/images/vectors/tick-wrong.svg"
+                alt=""
+              />
+              <p :class="mustMatch ? 'match-text' : 'no-match'">Passwords do not match</p>
+            </div>
+          </div>
+
                 <div class="btn-area">
-                    <button>Create Account</button>
+                    <button type="button" @click="checkPass()">Create Account</button>
                 </div>
             </form>
         
@@ -35,11 +55,36 @@
 </template>
 
 <script>
+import apiServices from "@/services/apiServices.js";
 import Navigation from '@/layouts/Navigation.vue';
 export default {
   name: 'AddOrganization',
   components: {
     Navigation
+  },
+  data() {
+    return {
+      password: "",
+      confirmPassword: "",
+      passwordFieldType: {
+        password: "password",
+        confirmPassword: "password",
+      },
+    };
+  },
+  computed: {
+    mustMatch() {
+      return this.password == this.confirmPassword && this.password;
+    },
+  },
+  methods:{
+    checkPass(){
+        if(this.mustMatch){
+            alert('worked')
+        }else{
+            alert('still worked')
+        }
+    }
   }
 }
 </script>
@@ -116,5 +161,10 @@ export default {
             }
         }       
     }
- 
+    .match-text{
+        display: none;
+    }
+    .no-match{
+        display: block;
+    }
 </style>
