@@ -49,16 +49,19 @@ export default {
           password: vm.password,
         },
         (response) => {
-          console.log(response)
           if (!response.error) {
             this.$store.dispatch("setAuth", {
               token: response.data.token,
               key: response.data.type,
             });
             this.$store.dispatch("setUser", response.user);
-            console.log(this.$store.state.authData)
             window.localStorage.setItem("authToken", response.token);
-            vm.$router.push("/dashboard");
+            if(this.$store.state.authData.key=="user"){
+                vm.$router.push("/organizations");
+            }if(this.$store.state.authData.key=="organisation"){
+                vm.$router.push("/dashboard");
+            }
+            
           } else {
             Alert.error({
               message: response.message,

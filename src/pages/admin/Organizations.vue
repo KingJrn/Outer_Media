@@ -21,7 +21,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Username</th>
                     <th scope="col">Added</th>
@@ -30,74 +29,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
+                    <tr v-for="organization in organizations" :key="organization.id">
+                        <td>{{organization.name}}</td>
+                        <td>{{ organization.username }}</td>
+                        <td>{{ organization.registered_on }}</td>
+                        <td>{{ organization.last_log_on }}</td>
                         <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            <button>Login</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Budda Live</td>
-                        <td>Buddahlive</td>
-                        <td>July, 31, 2023</td>
-                        <td>Never</td>
-                        <td class="action">
-                            <a href="">Edit</a>
+                            <a @click="editOrg(orgId)" href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
                             <button>Login</button>
                         </td>
@@ -127,6 +65,7 @@
 <script>
 
 import Navigation from '@/layouts/Navigation.vue';
+import apiServices from "@/services/apiServices.js";
 export default {
   name: 'OrganizationsView',
   components: {
@@ -134,9 +73,25 @@ export default {
   },
    data() {
         return {
-            dialog: false
+            userData:this.$store.state.user,
+            dialog: false,
+            organizations:[],
         }
     },
+    mounted(){
+        this.getOrganizations()
+    },
+    methods:{
+        getOrganizations() {
+            apiServices.getOrganizations((response) => {
+                if (response && response.success == true) {
+                this.organizations = response.data;
+                console.log(this.organizations)
+                // console.log(JSON.parse(this.orders[0].products))
+                }
+            });
+        },
+    }
 }
 </script>
 

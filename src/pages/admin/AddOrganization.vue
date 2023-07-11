@@ -7,21 +7,21 @@
                 <div class="row">
                     <div class="col">
                         <label for="">Organization Name</label>
-                        <input type="text" class="form-control" v-model="orgName" placeholder="Enter Organization name">
+                        <input type="text" class="form-control" v-model="organisation.orgName" placeholder="Enter Organization name">
                     </div>
                     <div class="col">
                         <label for="">Username</label>
-                        <input type="text" class="form-control" v-model="OrgUsername" placeholder="Enter Organization username">
+                        <input type="text" class="form-control" v-model="organisation.orgUsername" placeholder="Enter Organization username">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <label for="">Password</label>
-                    <input type="password" v-model="password" class="form-control" placeholder="Enter password">
+                    <input type="password" v-model="organisation.password" class="form-control" placeholder="Enter password">
                     </div>
                     <div class="col">
                         <label for="">Confirm Password</label>
-                    <input type="password" v-model="confirmPassword" class="form-control" placeholder="Confirm Password">
+                    <input type="password" v-model="organisation.confirmPassword" class="form-control" placeholder="Confirm Password">
                     </div>
                 </div>
 
@@ -29,24 +29,12 @@
 
           <div class="required">
             
-            
-            <div class="each-required">
-              <img
-                v-if="mustMatch"
-                src="@/assets/images/vectors/tick-right.svg"
-                alt=""
-              />
-              <img
-                v-if="!mustMatch"
-                src="@/assets/images/vectors/tick-wrong.svg"
-                alt=""
-              />
               <p :class="mustMatch ? 'match-text' : 'no-match'">Passwords do not match</p>
-            </div>
+         
           </div>
 
                 <div class="btn-area">
-                    <button type="button" @click="checkPass()">Create Account</button>
+                    <button type="button" @click="createAccount()">Create Account</button>
                 </div>
             </form>
         
@@ -64,12 +52,13 @@ export default {
   },
   data() {
     return {
-      password: "",
-      confirmPassword: "",
-      passwordFieldType: {
-        password: "password",
-        confirmPassword: "password",
-      },
+      organisation:{
+        orgName:"",
+        orgUsername:"",
+        password: "",
+        confirmPassword: "",
+      }
+      
     };
   },
   computed: {
@@ -78,12 +67,22 @@ export default {
     },
   },
   methods:{
-    checkPass(){
-        if(this.mustMatch){
-            alert('worked')
-        }else{
-            alert('still worked')
+    createAccount(){
+      apiServices.addOrganization(
+        {
+          name: this.organisation.orgName,
+          username: this.organisation.orgUsername,
+          password: this.organisation.password,
+          password_confirmation:this.organisation.confirmPassword,
+        },
+        (response) => {
+          if (response && response.error == false) {
+            console.log('added succesfully')
+          } else if (response && response.error) {
+            console.log('failed')
+          }
         }
+      );
     }
   }
 }

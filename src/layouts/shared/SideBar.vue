@@ -5,7 +5,7 @@
             <div>Outer media</div>
         </div>
         <!-- Menu List -->
-        <ul id="sidebar" class="navbar-nav">
+        <ul v-if="$store.state.authData.key=='organisation'" id="sidebar" class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/dashboard">
                     <img class="dark" src="@/assets/images/vectors/darkdashs.svg" alt="dash">
@@ -89,6 +89,53 @@
             </li>
         </ul>
 
+
+        <ul id="sidebar" v-if="$store.state.authData.key=='user'" class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/organizations">
+                    <img class="dark" src="@/assets/images/vectors/darkdashs.svg" alt="dash">
+                    <img class="light" src="@/assets/images/vectors/dash.svg" alt="dash">
+                    <span> Organizations</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/images">
+                    <img class="dark" src="@/assets/images/vectors/darklive.svg" alt="live">
+                    <img class="light" src="@/assets/images/vectors/live.svg" alt="live">
+                    <span> Images</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/libraries">
+                    <img class="dark" src="@/assets/images/vectors/darkusers.svg" alt="user">
+                    <img class="light" src="@/assets/images/vectors/users.svg" alt="user">
+                    <span> Libraries</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/preset">
+                    <img class="dark" src="@/assets/images/vectors/darkdisplays.svg" alt="display">
+                    <img class="light" src="@/assets/images/vectors/displays.svg" alt="display">
+                    <span>Preset</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sitesettings">
+                    <img class="dark" src="@/assets/images/vectors/darkpackage.svg" alt="packgae">
+                    <img class="light" src="@/assets/images/vectors/package.svg" alt="packgae">
+                    <span> Site Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+
+                <a class="nav-link" href="javascript: void(0)" @click="logOut()">
+                    <img class="dark" src="@/assets/images/vectors/darklogout.svg" alt="images">
+                    <img class="light" src="@/assets/images/vectors/logoutsidebar.svg" alt="images">
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+
     </nav>
 </template>
 <script>
@@ -132,6 +179,7 @@ export default {
     mounted() {
         this.sidebarEvent();
         this.restoreActiveLink();
+        console.log(this.$store.state.authData.key)
     },
 };
 
