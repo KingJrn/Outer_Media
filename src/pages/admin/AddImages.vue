@@ -8,20 +8,20 @@
           <div class="col">
             <label for="">Parent Organization</label>
             <div class="each-option">
-              <input type="radio" name="parent" value="" />
-              <select id="inputState" class="form-control">
-                <option>Option one</option>
-                <option>Option two</option>
+              <!-- <input type="radio" name="parent" v-model="org" value="parent" /> -->
+              <select v-model="org" id="inputState" class="form-control">
+                <option v-for="(organization, index) in organizations" :key="index" :value="organization.name">{{ organization.name }}</option>
+                <option value="Organization two">Option two</option>
               </select>
             </div>
           </div>
           <div class="col">
             <label for="">Parent Image Library</label>
             <div class="each-option">
-              <input type="radio" name="parent" value="" />
-              <select id="inputState" class="form-control">
-                <option>Option one</option>
-                <option>Option two</option>
+              <!-- <input type="radio" name="parent" v-model="folder" value="" /> -->
+              <select id="inputState" v-model="lib" class="form-control">
+                <option value="Organization one">Option one</option>
+                <option value="Organization two">Option two</option>
               </select>
             </div>
           </div>
@@ -32,8 +32,8 @@
           <div class="col">
             <label for="">Upload To Existing Library Folder</label>
             <div class="each-option">
-              <input type="radio" name="upload" value="" />
-              <select id="inputState" class="form-control">
+              <!-- <input type="radio" name="upload" value="" /> -->
+              <select v-model="lib_folder" id="inputState" class="form-control">
                 <option>Option one</option>
                 <option>Option two</option>
               </select>
@@ -42,8 +42,8 @@
           <div class="col">
             <label for="">Upload To New Library Folder</label>
             <div class="each-option">
-              <input type="radio" name="upload" value="" />
-              <select id="inputState" class="form-control">
+              <!-- <input type="radio" name="upload" value="" / > -->
+              <select v-model="new_lib_folder" id="inputState" class="form-control">
                 <option>Option one</option>
                 <option>Option two</option>
               </select>
@@ -75,7 +75,7 @@
         </div>
 
         <div class="btn-area">
-          <button>Add Image</button>
+          <button type="button" @click="addImage()">Add Image</button>
         </div>
       </form>
     </div>
@@ -83,14 +83,27 @@
 </template>
 
 <script>
+import apiServices from "@/services/apiServices.js";
 import Navigation from '@/layouts/Navigation.vue'
 export default {
   name: 'AddImage',
   components: {
     Navigation
   },
-
-  methods: {},
+  data() {
+    return {
+      image:{
+        org:"",
+        lib:"",
+        lib_folder:"",
+        new_lib_folder:"",
+        img_file: "",      
+      },
+      organizations:[],
+      
+    };
+  },
+  
   mounted() {
     // const dropzone = new Dropzone("div#myId", { url: "/file/post" });
     function ekUpload() {
@@ -225,7 +238,38 @@ export default {
         document.getElementById('file-drag').style.display = 'none'
       }
     }
-    ekUpload()
+    ekUpload();
+    this.getOrganizations()
+  },
+  methods:{
+    getOrganizations() {
+            apiServices.getOrganizations((response) => {
+                if (response && response.success == true) {
+                this.organizations = response.data;
+                console.log(this.organizations)
+                // console.log(JSON.parse(this.orders[0].products))
+                }
+            });
+        },
+    addImage(){
+      apiServices.addImage(
+        {
+          org: this.image.org,
+          lib:this.image.lib,
+          lib_folder: this.image.lib_folder,
+          new_lib_folder:this.new_lib_folder,
+          img_file: this.image.img_file,
+        },
+        console.log(this.img_file),
+        (response) => {
+          if (response && response.error == false) {
+            console.log('added succesfully')
+          } else if (response && response.error) {
+            console.log('failed')
+          }
+        }
+      );
+    }
   }
 }
 </script>

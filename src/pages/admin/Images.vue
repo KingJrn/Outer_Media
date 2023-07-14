@@ -14,7 +14,7 @@
                     </select>
                 </div>
                 <div class="right-side">
-                    <a href="/addorganization">Add New Image</a>
+                    <a href="/adminaddimage">Add New Image</a>
                 </div>
             </div>
             <table class="table">
@@ -123,11 +123,34 @@
 
 <script>
 import Navigation from '@/layouts/Navigation.vue';
+import apiServices from "@/services/apiServices.js";
 export default {
   name: 'ImagesView',
   components: {
     Navigation
-  }
+  },
+  data() {
+        return {
+            userData:this.$store.state.user,
+            dialog: false,
+            images:[],
+        }
+    },
+    mounted(){
+        this.getImages()
+    },
+    methods:{
+        getImages() {
+            apiServices.getImages((response) => {
+                console.log(response)
+                if (response && response.success == true) {
+                this.images = response.data;
+                console.log(this.images)
+                // console.log(JSON.parse(this.orders[0].products))
+                }
+            });
+        },
+    }
 }
 </script>
 

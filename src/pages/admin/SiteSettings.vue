@@ -12,17 +12,17 @@
                     <div class="row">
                         <div class="col-6">
                             <label for="">Super Admin Name</label>
-                            <input type="text" class="form-control" placeholder="Enter Organization name">
+                            <input type="text" class="form-control" placeholder="Enter Superadmin name">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="">Super Admin Password</label>
-                            <input type="password" class="form-control" placeholder="Enter Organization name">
+                            <input type="password" class="form-control" placeholder="Enter password">
                         </div>
                         <div class="col">
                             <label for="">Confirm Super Admin Password</label>
-                            <input type="password" class="form-control" placeholder="Enter Organization name">
+                            <input type="password" class="form-control" placeholder="Confirm password">
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                 
 
                 <div class="btn-area">
-                    <button>Save</button>
+                    <button type="button" @click="site_Settings()">Save</button>
                 </div>
 
                 
@@ -100,6 +100,7 @@
 
 <script>
 import Navigation from '@/layouts/Navigation.vue';
+import apiServices from "@/services/apiServices.js";
 export default {
   name: 'SiteSettings',
   components: {
@@ -109,12 +110,31 @@ export default {
         return{
             tab:1,
             active:true,
+            siteSettings : {
+                adminName:"",
+                password:"",
+                confirmPassword:"",
+            }
         }
     },
     methods:{
         changeTab(tab){
             this.tab=tab;
         },
+        site_Settings(){
+            apiServices.siteSettings(
+                {
+                
+                },
+                (response) => {
+                if (response && response.error == false) {
+                    console.log('added succesfully')
+                } else if (response && response.error) {
+                    console.log('failed')
+                }
+                }
+            );
+        }
     }
 }
 </script>

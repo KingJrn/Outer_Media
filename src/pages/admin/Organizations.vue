@@ -86,7 +86,6 @@ export default {
             apiServices.getOrganizations((response) => {
                 if (response && response.success == true) {
                 this.organizations = response.data;
-                console.log(this.organizations)
                 // console.log(JSON.parse(this.orders[0].products))
                 }
             });

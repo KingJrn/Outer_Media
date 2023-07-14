@@ -21,7 +21,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Library Type</th>
                     <th scope="col">Published</th>
@@ -29,77 +28,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Misc Image</td>
-                        <td>Image</td>
+                    <tr v-for="library in libraries" :key="library.id">
+                        <td>{{ library.name }}</td>
+                        <td>{{ library.type }}</td>
                         <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Misc Image</td>
-                        <td>Image</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Misc Image</td>
-                        <td>Image</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Misc Image</td>
-                        <td>Image</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Misc Image</td>
-                        <td>Image</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Misc Image</td>
-                        <td>Image</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Misc Image</td>
-                        <td>Image</td>
-                        <td>Yes <Switch /></td>
                         <td class="action">
                             <a href="">Edit</a>
                             <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
@@ -116,12 +48,34 @@
 <script>
 import Switch from '@/layouts/partials/Switch.vue';
 import Navigation from '@/layouts/Navigation.vue';
+import apiServices from "@/services/apiServices.js";
 export default {
   name: 'LibrariesView',
   components: {
     Navigation,
     Switch,
-  }
+  },
+  data() {
+        return {
+            userData:this.$store.state.user,
+            dialog: false,
+            libraries:[],
+        }
+    },
+    mounted(){
+        this.getLibraries()
+    },
+    methods:{
+        getLibraries() {
+            apiServices.getLibraries((response) => {
+                if (response && response.success == true) {
+                this.libraries = response.data;
+                console.log(this.libraries)
+                // console.log(JSON.parse(this.orders[0].products))
+                }
+            });
+        },
+    }
 }
 </script>
 

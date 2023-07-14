@@ -7,19 +7,19 @@
                 <div class="row">
                     <div class="col">
                         <label for="">Library Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Organization name">
+                        <input type="text" v-model="library.libraryName" class="form-control" placeholder="Enter Organization name">
                     </div>
                     <div class="col">
                         <label for="">Library Type</label>
-                        <select id="inputState" class="form-control">
-                            <option>Option one</option>
-                            <option>Option two</option>
+                        <select id="inputState" v-model="library.libraryType" class="form-control">
+                            <option value="First Library">Option one</option>
+                            <option value="Second Library">Option two</option>
                         </select>
                     </div>
                 </div>
                 <div class="row"> 
                     <label for="">Library Description</label>
-                    <textarea name="" placeholder="Enter description here" class="form-control" id="" cols="30" rows="10"></textarea>
+                    <textarea name="" v-model="library.libraryDescription" placeholder="Enter description here" class="form-control" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div class="switch-area">
                     <p>Publish</p>
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="btn-area">
-                    <button>Add Library</button>
+                    <button type="button" @click="addLibrary()">Add Library</button>
                 </div>
 
                 
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import apiServices from "@/services/apiServices.js";
 import Switch from '@/layouts/partials/Switch.vue'
 import Navigation from '@/layouts/Navigation.vue';
 export default {
@@ -45,6 +46,34 @@ export default {
   components: {
     Navigation,
     Switch,
+  },
+  data() {
+    return {
+      library:{
+        libraryName:"",
+        libraryType:"",
+        libraryDescription: "",
+      }
+      
+    };
+  },
+  methods:{
+    addLibrary(){
+      apiServices.addLibrary(
+        {
+          name: this.library.libraryName,
+          type: this.library.libraryType,
+          description: this.library.libraryDescription,
+        },
+        (response) => {
+          if (response && response.error == false) {
+            console.log('added succesfully')
+          } else if (response && response.error) {
+            console.log('failed')
+          }
+        }
+      );
+    }
   }
 }
 </script>

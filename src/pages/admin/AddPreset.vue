@@ -7,49 +7,37 @@
                 <div class="row">
                     <div class="col">
                         <label for="">Preset Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Organization name">
+                        <input type="text" class="form-control" v-model="preset.name" placeholder="Enter Organization name">
                     </div>
                     <div class="col">
                         <label for="">Position Top</label>
-                        <input type="text" class="form-control" placeholder="Placeholder">
+                        <input type="text" v-model="preset.top" class="form-control" placeholder="Placeholder">
                     </div>
                     <div class="col">
                         <label for="">Position Left</label>
-                        <input type="text" class="form-control" placeholder="Placeholder">
+                        <input type="text" v-model="preset.left" class="form-control" placeholder="Placeholder">
                     </div>
                 </div>
                 <h2 class="underline-text">Object Timing</h2>
                 <div class="lil-line"></div>
                 <div class="row">
                     <div class="col">
-                        <label for="">Side In</label>
-                        <select id="inputState" class="form-control">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                        </select>
+                        <label for="">Slide In</label>
+                        <input type="text" v-model="preset.slideIn" class="form-control" placeholder="Placeholder">
                     </div>
                     <div class="col">
-                        <label for="">Side Out</label>
-                        <select id="inputState" class="form-control">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                        </select>
+                        <label for="">Slide Out</label>
+                        <input type="text" v-model="preset.slideOut" class="form-control" placeholder="Placeholder">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <label for="">Scale X In</label>
-                        <select class="form-control">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                        </select>
+                        <input type="text" v-model="preset.scaleIn" class="form-control" placeholder="Placeholder">
                     </div>
                     <div class="col">
                         <label for="">Scale X Out</label>
-                        <select id="inputState" class="form-control">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                        </select>
+                        <input type="text" v-model="preset.scaleOut" class="form-control" placeholder="Placeholder">
                     </div>
                 </div>
 
@@ -57,51 +45,36 @@
                 <div class="lil-line"></div>
                 <div class="row">
                     <div class="col">
-                        <label for="">Side In</label>
-                        <select id="inputState" class="form-control">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                        </select>
+                        <label for="">Rotate In/Out style</label>
+                        <input type="text" v-model="preset.rotateStyle" class="form-control" placeholder="Placeholder">
                     </div>
                     <div class="col">
-                        <label for="">Side Out</label>
-                        <input type="text" class="form-control" placeholder="Placeholder">
+                        <label for="">Transform Origin In</label>
+                        <input type="text" v-model="preset.transformIn" class="form-control" placeholder="Placeholder">
                     </div>
                     <div class="col">
-                        <label for="">Side Out</label>
-                        <input type="text" class="form-control" placeholder="Placeholder">
+                        <label for="">Transform Origin Out</label>
+                        <input type="text" v-model="preset.transformOut" class="form-control" placeholder="Placeholder">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label for="">Scale X In</label>
-                        <select class="form-control">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                        </select>
+                        <label for="">Easing In</label>
+                        <input type="text" v-model="preset.easingIn" class="form-control" placeholder="Placeholder">
                     </div>
                     <div class="col">
-                        <label for="">Scale X Out</label>
-                        <select id="inputState" class="form-control">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                        </select>
+                        <label for="">Easing Out</label>
+                        <input type="text" v-model="preset.easingOut" class="form-control" placeholder="Placeholder">
                     </div>
                 </div>
                  <div class="row">
                     <div class="col">
-                        <label for="">Scale X In</label>
-                        <select class="form-control">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                        </select>
+                        <label for="">Fading In</label>
+                        <input type="text" v-model="preset.fadingIn" class="form-control" placeholder="Placeholder">
                     </div>
                     <div class="col">
-                        <label for="">Scale X Out</label>
-                        <select id="inputState" class="form-control">
-                            <option>Option one</option>
-                            <option>Option two</option>
-                        </select>
+                        <label for="">Fading Out</label>
+                        <input type="text" v-model="preset.fadingOut" class="form-control" placeholder="Placeholder">
                     </div>
                 </div>
                 
@@ -111,7 +84,7 @@
                 </div>
 
                 <div class="btn-area">
-                    <button>Add</button>
+                    <button type="button" @click="addPreset()">Add</button>
                 </div>
 
                 
@@ -122,13 +95,64 @@
 </template>
 
 <script>
-import Switch from '@/layouts/partials/Switch.vue'
+import Switch from '@/layouts/partials/Switch.vue';
+import apiServices from "@/services/apiServices.js";
 import Navigation from '@/layouts/Navigation.vue';
 export default {
   name: 'AddOrganization',
   components: {
     Navigation,
     Switch,
+  },
+  data() {
+    return {
+      preset:{
+        name:"",
+        top:"",
+        left: "",
+        slideIn: "",
+        slideOut:"",
+        scaleIn:"",
+        scaleOut:"",
+        rotateStyle:"",
+        transformIn:"",
+        transformOut:"",
+        easingIn:"",
+        easingOut:"",
+        fadingIn:"",
+        fadingOut:"",
+        published:"yes",
+      }
+      
+    };
+  },
+  methods:{
+    addPreset(){
+      apiServices.addPreset(
+        {
+          name: this.preset.name,
+          pos_top: this.preset.top,
+          pos_left: this.preset.left,
+          slide_in:this.preset.slideIn,
+          slide_out:this.preset.slideOut,
+          scale_x_in:this.preset.scaleIn,
+          scale_x_out:this.preset.scaleOut,
+          rot_in_out_style:this.preset.rotateStyle,
+          transform_origin_In:this.preset.transformIn,
+          transform_origin_Out:this.preset.transformOut,
+          fading_in:this.preset.fadingIn,
+          fading_out:this.preset.fadingOut,
+          published:this.published,
+        },
+        (response) => {
+          if (response && response.error == false) {
+            console.log('added succesfully')
+          } else if (response && response.error) {
+            console.log('failed')
+          }
+        }
+      );
+    }
   }
 }
 </script>

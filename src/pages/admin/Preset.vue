@@ -20,76 +20,14 @@
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Published</th>
-                    <th scope="col">Action</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Published</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td >Sample - Center Fade/Zoom In/Out</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Sample - Center Fade/Zoom In/Out</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Sample - Center Fade/Zoom In/Out</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Sample - Center Fade/Zoom In/Out</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Sample - Center Fade/Zoom In/Out</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Sample - Center Fade/Zoom In/Out</td>
-                        <td>Yes <Switch/></td>
-                        <td class="action">
-                            <a href="">Edit</a>
-                            <a href=""><img src="@/assets/images/vectors/delete.svg" alt=""></a>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Sample - Center Fade/Zoom In/Out</td>
+                    <tr v-for="preset in presets" :key="preset.id">
+                        <td >{{preset.name}}</td>
                         <td>Yes <Switch/></td>
                         <td class="action">
                             <a href="">Edit</a>
@@ -107,12 +45,34 @@
 <script>
 import Switch from '@/layouts/partials/Switch.vue';
 import Navigation from '@/layouts/Navigation.vue';
+import apiServices from "@/services/apiServices.js";
 export default {
   name: 'PresetView',
   components: {
     Navigation,
     Switch,
-  }
+  },
+  data() {
+        return {
+            userData:this.$store.state.user,
+            dialog: false,
+            presets:[],
+        }
+    },
+  mounted(){
+        this.getPreset()
+    },
+    methods:{
+        getPreset() {
+            apiServices.getPreset((response) => {
+                if (response && response.success == true) {
+                this.presets = response.data;
+                console.log(this.presets);
+                // console.log(JSON.parse(this.orders[0].products))
+                }
+            });
+        },
+    }
 }
 </script>
 

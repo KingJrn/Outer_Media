@@ -99,7 +99,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/images">
+                <a class="nav-link" href="/adminimages">
                     <img class="dark" src="@/assets/images/vectors/darklive.svg" alt="live">
                     <img class="light" src="@/assets/images/vectors/live.svg" alt="live">
                     <span> Images</span>
@@ -120,7 +120,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/sitesettings">
+                <a class="nav-link" href="/site-settings">
                     <img class="dark" src="@/assets/images/vectors/darkpackage.svg" alt="packgae">
                     <img class="light" src="@/assets/images/vectors/package.svg" alt="packgae">
                     <span> Site Settings</span>

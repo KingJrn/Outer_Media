@@ -56,6 +56,7 @@ export default {
             });
             this.$store.dispatch("setUser", response.user);
             window.localStorage.setItem("authToken", response.token);
+            console.log(response)
             if(this.$store.state.authData.key=="user"){
                 vm.$router.push("/organizations");
             }if(this.$store.state.authData.key=="organisation"){
