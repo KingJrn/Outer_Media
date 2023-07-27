@@ -12,7 +12,8 @@ const ADD_LIBRARY_PATH = () => "/libraries";
 const GET_LIBRARIES_PATH = () => "/libraries";
 const GET_IMAGES_PATH = () => "/images?page=1";
 const ADD_IMAGE_PATH = () => "/images";
-const SITE_SETTINGS_PATH = () => "/settings"
+const SITE_SETTINGS_PATH = () => "/settings";
+const ADD_USER_PATH = (id) => `/${id}/user`;
 
 
 export default{
@@ -41,7 +42,6 @@ export default{
         .get(BASE_URL + GET_ORGANIZATION_PATH())
         .then((response) => {
           callback(response.data);
-          console.log(response.data)
         })
         .catch((error) => {
           callback(error.data);
@@ -103,9 +103,7 @@ export default{
       axios
         .get(BASE_URL + GET_IMAGES_PATH())
         .then((response) => {
-          console.log(response)
           callback(response.data);
-          console.log(response.data)
         })
         .catch((error) => {
           callback(error.data);
@@ -114,6 +112,16 @@ export default{
     siteSettings: function (data, callback) {
       axios
         .put(BASE_URL + SITE_SETTINGS_PATH(), data)
+        .then((response) => {
+          callback(response.data);
+        })
+        .catch((error) => {
+          callback(error.data);
+        });
+    },
+    addUser: function (data, callback) {
+      axios
+        .post(BASE_URL + ADD_USER_PATH(id), data)
         .then((response) => {
           callback(response.data);
         })

@@ -53,10 +53,11 @@ export default {
             this.$store.dispatch("setAuth", {
               token: response.data.token,
               key: response.data.type,
+              user_id:response.data.username,
             });
             this.$store.dispatch("setUser", response.user);
             window.localStorage.setItem("authToken", response.token);
-            console.log(response)
+            this.$swal('Login Successful');
             if(this.$store.state.authData.key=="user"){
                 vm.$router.push("/organizations");
             }if(this.$store.state.authData.key=="organisation"){
@@ -64,9 +65,7 @@ export default {
             }
             
           } else {
-            Alert.error({
-              message: response.message,
-            });
+            console.log(response.error);
           }
           vm.isLoading = false;
         },

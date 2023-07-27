@@ -179,7 +179,7 @@ export default {
     mounted() {
         this.sidebarEvent();
         this.restoreActiveLink();
-        console.log(this.$store.state.authData.key)
+        console.log(this.$store.state.authData.user_id)
     },
 };
 

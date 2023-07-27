@@ -85,6 +85,7 @@
 
                 <div class="btn-area">
                     <button type="button" @click="addPreset()">Add</button>
+                    <button type="button" @click="sweetAlert()">Sweet Alert</button>
                 </div>
 
                 
@@ -146,12 +147,15 @@ export default {
         },
         (response) => {
           if (response && response.error == false) {
-            console.log('added succesfully')
+            this.$swal('Preset Added Successfully');
           } else if (response && response.error) {
-            console.log('failed')
+            this.$swal(response.error);
           }
         }
       );
+    },
+    sweetAlert(){
+        
     }
   }
 }

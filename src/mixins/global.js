@@ -9,15 +9,7 @@ export default {
       documents: this.$store.state.documents,
     };
   },
-  computed: {
-    isAdmin() {
-      return this.userData.user.type == "admin";
-    },
-    isUser() {
-      return this.userData.user.type == "user";
-    },
 
-  },
  
   methods: {
     addScript(src) {

@@ -10,28 +10,28 @@
                     <div class="d-flex edit-group w-100">
                         <div class="mb-3 col">
                             <label for="exampleInputEmail1" class="form-label">Users Real Name</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required placeholder="Placeholder">
+                            <input type="text" v-model="user.name" class="form-control"  aria-describedby="emailHelp" required placeholder="Placeholder">
                         </div>
                         <div class="mb-3 col">
                             <label for="exampleInputEmail1" class="form-label">UserName</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required placeholder="Placeholder">
+                            <input type="text" class="form-control" v-model="user.username"  aria-describedby="emailHelp" required placeholder="Placeholder">
                         </div>
 
                     </div>
                     <div class="d-flex edit-group w-100">
                         <div class="mb-3 col">
                             <label for="exampleInputEmail1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="password" class="form-control" v-model="user.password"  aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3 col">
                             <label for="exampleInputEmail1" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="password" class="form-control" v-model="user.password_confirmation"  aria-describedby="emailHelp">
             
                         </div>
 
                     </div>
                     
-                    <button class="add" type="button">Create Account</button>
+                    <button class="add" @click="addUser($store.state.authData.user_id)" type="button">Create Account</button>
                 </form>
             </div>
         </div>
@@ -39,14 +39,43 @@
 </template>
 
 <script>
-import mainView from '@/layouts/partials/mainView.vue'
+import mainView from '@/layouts/partials/mainView.vue';
+import apiServices from "@/services/apiServices.js";
 
 export default {
     name: 'AddNewUser',
     components: {
         mainView
     },
-
+    data() {
+    return {
+      user:{
+        name:"",
+        username:"",
+        password:"",
+        password_confirmation:"",
+      },        
+    };
+  },
+  methods:{
+        addUser(user_id){
+            apiServices.addUser(user_id,
+                {
+                name: this.user.name,
+                username:this.user.username,
+                password: this.user.password,
+                password_confirmation:this.user.password_confirmation,
+                },
+                (response) => {
+                if (response && response.error == false) {
+                    console.log('added succesfully')
+                } else if (response && response.error) {
+                    console.log('failed')
+                }
+                }
+            );
+        }
+        }
 
 }
 </script>

@@ -142,7 +142,6 @@ export default {
     methods:{
         getImages() {
             apiServices.getImages((response) => {
-                console.log(response)
                 if (response && response.success == true) {
                 this.images = response.data;
                 console.log(this.images)

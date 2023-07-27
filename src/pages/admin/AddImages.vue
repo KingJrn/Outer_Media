@@ -9,9 +9,8 @@
             <label for="">Parent Organization</label>
             <div class="each-option">
               <!-- <input type="radio" name="parent" v-model="org" value="parent" /> -->
-              <select v-model="org" id="inputState" class="form-control">
+              <select v-model="image.org" id="inputState" class="form-control">
                 <option v-for="(organization, index) in organizations" :key="index" :value="organization.name">{{ organization.name }}</option>
-                <option value="Organization two">Option two</option>
               </select>
             </div>
           </div>
@@ -19,9 +18,8 @@
             <label for="">Parent Image Library</label>
             <div class="each-option">
               <!-- <input type="radio" name="parent" v-model="folder" value="" /> -->
-              <select id="inputState" v-model="lib" class="form-control">
-                <option value="Organization one">Option one</option>
-                <option value="Organization two">Option two</option>
+              <select id="inputState" v-model="image.lib" class="form-control">
+                <option v-for="(library, index) in libraries" :key="index" :value="library.name">{{library.name}}</option>
               </select>
             </div>
           </div>
@@ -33,9 +31,8 @@
             <label for="">Upload To Existing Library Folder</label>
             <div class="each-option">
               <!-- <input type="radio" name="upload" value="" /> -->
-              <select v-model="lib_folder" id="inputState" class="form-control">
-                <option>Option one</option>
-                <option>Option two</option>
+              <select v-model="image.lib_folder" id="inputState" class="form-control">
+                <option value="Organization two">Option two</option>
               </select>
             </div>
           </div>
@@ -43,10 +40,7 @@
             <label for="">Upload To New Library Folder</label>
             <div class="each-option">
               <!-- <input type="radio" name="upload" value="" / > -->
-              <select v-model="new_lib_folder" id="inputState" class="form-control">
-                <option>Option one</option>
-                <option>Option two</option>
-              </select>
+              <input type="text" class="form-control" v-model="image.new_lib_folder">
             </div>
           </div>
         </div>
@@ -57,6 +51,7 @@
             type="file"
             name="fileUpload"
             accept=".jpeg, .doc, .docx, .xls, .xlsx, .txt, .jpg, .png, .gif"
+            @change="uploadFile"
           />
           <label for="file-upload" class="image-label" id="file-drag">
             <img id="file-image" src="#" alt="Preview" class="hidden" />
@@ -96,10 +91,11 @@ export default {
         org:"",
         lib:"",
         lib_folder:"",
-        new_lib_folder:"",
-        img_file: "",      
+        new_lib_folder:"",    
       },
       organizations:[],
+      libraries:[],
+      image_file:"",
       
     };
   },
@@ -239,26 +235,60 @@ export default {
       }
     }
     ekUpload();
-    this.getOrganizations()
+    this.getOrganizations();
+    this.getLibraries();
   },
   methods:{
-    getOrganizations() {
+        getOrganizations() {
             apiServices.getOrganizations((response) => {
                 if (response && response.success == true) {
                 this.organizations = response.data;
-                console.log(this.organizations)
                 // console.log(JSON.parse(this.orders[0].products))
                 }
             });
         },
+        getLibraries() {
+            apiServices.getLibraries((response) => {
+                if (response && response.success == true) {
+                this.libraries = response.data;
+                console.log(this.libraries)
+                }
+            });
+        },
+        uploadFile() {
+          const input = document.querySelector("#file-upload");
+          const file = input.files;
+          // this.inputData.files = file;
+
+          // get the file name
+          this.image_file = file[0].name;
+          var data = new FormData();
+          var index = 0;
+          while (this.image_file[index]) {
+        data.append(`image_${index}`, this.image_file[index]);
+        index++;
+      }
+      for (var field in this.image_file) {
+        if (field != "files") {
+          if (typeof this.image_file[field] == "object") {
+            this.image_file[field] = JSON.stringify(this.image_file[field]);
+          }
+          data.append(field, this.image_file[field]);
+        }
+      }
+
+          // preview the image
+
+          // if at least one image is selected proceed to display the image
+    },
     addImage(){
       apiServices.addImage(
         {
           org: this.image.org,
           lib:this.image.lib,
           lib_folder: this.image.lib_folder,
-          new_lib_folder:this.new_lib_folder,
-          img_file: this.image.img_file,
+          new_lib_folder:this.image.new_lib_folder,
+          image_file:this.image_file,
         },
         console.log(this.img_file),
         (response) => {
