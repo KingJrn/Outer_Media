@@ -4,7 +4,7 @@ export default {
   },
   data() {
     return {
-      userData: this.$store.state.user,
+      userData: this.$store.state.authData,
       // appConfig: config,
       documents: this.$store.state.documents,
     };

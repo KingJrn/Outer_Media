@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { error } from 'jquery'
 
 // Base url
-const BASE_URL = 'https://api.outer.media/api';
+const BASE_URL = 'https://api.outer.media/api'
 
 const LOGIN_PATH = () => "/login";
 const ADD_ORGANIZATION_PATH = () => "/organisations";
@@ -15,6 +16,8 @@ const ADD_IMAGE_PATH = () => "/images";
 const SITE_SETTINGS_PATH = () => "/settings";
 const ADD_USER_PATH = (id) => `/${id}/user`;
 
+// Organizations  dashboard
+const ADD_NEW_USER_PATH = (id) => `/${id}/users`
 
 export default{
    loginUser: function (loginData, successCallback, errorCallback) {
@@ -129,4 +132,19 @@ export default{
           callback(error.data);
         });
     },
+    
+    // ! This is for ORGANIZATION DASHBOARD
+
+  addNewUser: function(data) {
+    const username = userData.allData.username;
+    axios
+      .post(BASE_URL + ADD_NEW_USER_PATH(`${username}`), data)
+      .then((response) => {
+        callback(response.data)
+      })
+      .catch((error) => {
+        callback(error.data)
+      })
+  }
+  
 }
